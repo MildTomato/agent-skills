@@ -2,13 +2,13 @@
 
 ## Configuration Types
 
-| Type | Changes | Scope | Storage |
-|------|---------|-------|---------|
-| Per-invocation | Every run | Session | Flags |
-| Per-session | Rarely | User/machine | Env vars |
-| Per-project | Rarely | Project | Project file |
-| Per-user | Rarely | User | User config file |
-| System-wide | Rarely | All users | System config |
+| Type           | Changes   | Scope        | Storage          |
+| -------------- | --------- | ------------ | ---------------- |
+| Per-invocation | Every run | Session      | Flags            |
+| Per-session    | Rarely    | User/machine | Env vars         |
+| Per-project    | Rarely    | Project      | Project file     |
+| Per-user       | Rarely    | User         | User config file |
+| System-wide    | Rarely    | All users    | System config    |
 
 ## Precedence (Highest to Lowest)
 
@@ -40,6 +40,7 @@ config_dir = os.path.join(config_home, 'myapp')
 ## Environment Variables
 
 **Naming rules:**
+
 - Uppercase letters, numbers, underscores only
 - Don't start with a number
 - Prefix with app name: `MYAPP_*`
@@ -51,6 +52,7 @@ MYAPP_API_KEY=xxx
 ```
 
 **Check standard env vars:**
+
 - `NO_COLOR` / `FORCE_COLOR` — color output
 - `DEBUG` — verbose output
 - `EDITOR` — text editor
@@ -76,18 +78,19 @@ load_dotenv()  # Loads .env into os.environ
 ```
 
 **Don't use .env for:**
+
 - Secrets in production (use secret manager)
 - Complex configuration (use proper config file)
 - Version-controlled settings (use config file)
 
 ## Config File Formats
 
-| Format | Pros | Cons |
-|--------|------|------|
-| JSON | Universal, typed | No comments |
-| YAML | Readable, comments | Whitespace-sensitive |
-| TOML | Readable, comments | Less known |
-| INI | Simple | Limited structure |
+| Format | Pros               | Cons                 |
+| ------ | ------------------ | -------------------- |
+| JSON   | Universal, typed   | No comments          |
+| YAML   | Readable, comments | Whitespace-sensitive |
+| TOML   | Readable, comments | Less known           |
+| INI    | Simple             | Limited structure    |
 
 ```toml
 # config.toml
@@ -129,11 +132,13 @@ mycmd config path              # Show config file location
 ## Secrets
 
 **Never store secrets in:**
+
 - Environment variables (leak to child processes, logs)
 - Config files (may be committed to git)
 - Command-line flags (visible in `ps`)
 
 **Do store secrets in:**
+
 - Dedicated secret files with restricted permissions
 - Secret management services (Vault, AWS Secrets Manager)
 - OS keychain/credential manager
@@ -149,6 +154,7 @@ cat credentials | mycmd --credentials-stdin
 ## Validation
 
 Validate config at startup:
+
 ```
 $ mycmd start
 Error: Invalid configuration

@@ -8,14 +8,15 @@
 
 ## Human-readable Output is Paramount
 
-Humans come first, machines second. The most simple and straightforward heuristic for whether a particular output stream (`stdout` or `stderr`) is being read by a human is *whether or not it's a TTY*.
+Humans come first, machines second. The most simple and straightforward heuristic for whether a particular output stream (`stdout` or `stderr`) is being read by a human is _whether or not it's a TTY_.
 
 Whatever language you're using, it will have a utility or library for doing this:
+
 - [Python](https://stackoverflow.com/questions/858623/how-to-recognize-whether-a-script-is-running-on-a-tty)
 - [Node](https://nodejs.org/api/process.html#process_a_note_on_process_i_o)
 - [Go](https://github.com/mattn/go-isatty)
 
-*Further reading on [what a TTY is](https://unix.stackexchange.com/a/4132).*
+_Further reading on [what a TTY is](https://unix.stackexchange.com/a/4132)._
 
 ## TTY Detection
 
@@ -68,7 +69,7 @@ myapp	running	2h	512MB	2.3%
 It is also widely used on the web, so by using JSON as the input and output of programs, you can pipe directly to and from web services using `curl`.
 
 ```json
-{"status": "success", "files": ["a.txt", "b.txt"], "count": 2}
+{ "status": "success", "files": ["a.txt", "b.txt"], "count": 2 }
 ```
 
 ## Display Output on Success
@@ -84,6 +85,7 @@ For instances where you do want no output (for example, when used in shell scrip
 **If you change state, tell the user.** When a command changes the state of a system, it's especially valuable to explain what has just happened, so the user can model the state of the system in their head—particularly if the result doesn't directly map to what the user requested.
 
 Example from `git push`:
+
 ```
 $ git push
 Enumerating objects: 18, done.
@@ -102,6 +104,7 @@ To github.com:replicate/replicate.git
 **Make it easy to see the current state of the system.** If your program does a lot of complex state changes and it is not immediately visible in the filesystem, make sure you make this easy to view.
 
 Example from `git status`:
+
 ```
 $ git status
 On branch bfirsh/fix-delete
@@ -147,13 +150,14 @@ drwxr-xr-x 2 root root   4.0K Jul 20 14:57 skel
 **Use color with intention.** For example, you might want to highlight some text so the user notices it, or use red to indicate an error. Don't overuse it—if everything is a different color, then the color means nothing and only makes it harder to read.
 
 **Disable colors when:**
+
 - `stdout` or `stderr` is not an interactive terminal (a TTY). It's best to individually check—if you're piping `stdout` to another program, it's still useful to get colors on `stderr`.
 - The `NO_COLOR` environment variable is set and it is not empty (regardless of its value)
 - The `TERM` environment variable has the value `dumb`
 - The user passes the option `--no-color`
 - You may also want to add a `MYAPP_NO_COLOR` environment variable in case users want to disable color specifically for your program
 
-*Further reading: [no-color.org](https://no-color.org/), [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46)*
+_Further reading: [no-color.org](https://no-color.org/), [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46)_
 
 ## Animations
 
@@ -170,8 +174,8 @@ $ yubikey-agent -setup
 🔐 The PIN is up to 8 numbers, letters, or symbols. Not just numbers!
 ❌ The key will be lost if the PIN and PUK are locked after 3 incorrect tries.
 
-Choose a new PIN/PUK: 
-Repeat the PIN/PUK: 
+Choose a new PIN/PUK:
+Repeat the PIN/PUK:
 
 🧪 Reticulating splines …
 
@@ -202,6 +206,7 @@ Invite usability feedback from outsiders and people who are new to your project.
 **Use a pager only if `stdin` or `stdout` is an interactive terminal.**
 
 A good sensible set of options to use for `less` is `less -FIRX`:
+
 - `-F`: Don't page if the content fills one screen
 - `-I`: Case-insensitive search
 - `-R`: Pass through colors/escape codes
@@ -212,16 +217,19 @@ There might be libraries in your language that are more robust than piping to `l
 ## Progress Indicators
 
 **When to show:**
+
 - Operations taking >1 second
 - Network requests (show before starting)
 - Multi-step processes
 
 **Libraries:**
+
 - Python: tqdm
 - Go: schollz/progressbar
 - Node: node-progress
 
 **Rules:**
+
 - Don't show in non-TTY (prevents CI log spam)
 - Show estimated time or animate to indicate activity
 - On error, print full logs (don't hide behind progress)

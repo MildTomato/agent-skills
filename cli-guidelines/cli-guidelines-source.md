@@ -1,6 +1,6 @@
 # Command Line Interface Guidelines
 
-An [open-source](https://github.com/cli-guidelines/cli-guidelines) guide to help you write better command-line programs, taking traditional UNIX principles and updating them for the modern day.  
+An [open-source](https://github.com/cli-guidelines/cli-guidelines) guide to help you write better command-line programs, taking traditional UNIX principles and updating them for the modern day.
 
 ## Authors {#authors}
 
@@ -25,7 +25,6 @@ Design by [Mark Hurrell](https://mhurrell.co.uk/). Thanks to Andreas Jansson for
 <iframe class="github-button" src="https://ghbtns.com/github-btn.html?user=cli-guidelines&repo=cli-guidelines&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
 
 [Join us on Discord](https://discord.gg/EbAW5rUCkE) if you want to discuss the guide or CLI design.
-
 
 ## Foreword {#foreword}
 
@@ -82,6 +81,7 @@ Full-screen programs are niche projects—very few of us will ever be in the pos
 This guide is also agnostic about programming languages and tooling in general.
 
 Who is this guide for?
+
 - If you are creating a CLI program and you are looking for principles and concrete best practices for its UI design, this guide is for you.
 - If you are a professional “CLI UI designer,” that’s amazing—we’d love to learn from you.
 - If you’d like to avoid obvious missteps of the variety that go against 40 years of CLI design conventions, this guide is for you.
@@ -259,21 +259,22 @@ Either your language’s built-in one, or a good third-party one.
 They will normally handle arguments, flag parsing, help text, and even spelling suggestions in a sensible way.
 
 Here are some that we like:
-* Multi-platform: [docopt](http://docopt.org)
-* Bash: [argbash](https://argbash.dev)
-* Go: [Cobra](https://github.com/spf13/cobra), [cli](https://github.com/urfave/cli)
-* Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
-* Java: [picocli](https://picocli.info/)
-* Julia: [ArgParse.jl](https://github.com/carlobaldassi/ArgParse.jl), [Comonicon.jl](https://github.com/comonicon/Comonicon.jl)
-* Kotlin: [clikt](https://ajalt.github.io/clikt/)
-* Node: [oclif](https://oclif.io/)
-* Deno: [parseArgs](https://jsr.io/@std/cli/doc/parse-args/~/parseArgs)
-* Perl: [Getopt::Long](https://metacpan.org/pod/Getopt::Long)
-* PHP: [console](https://github.com/symfony/console), [CLImate](https://climate.thephpleague.com)
-* Python: [Argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
-* Ruby: [TTY](https://ttytoolkit.org/)
-* Rust: [clap](https://docs.rs/clap)
-* Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
+
+- Multi-platform: [docopt](http://docopt.org)
+- Bash: [argbash](https://argbash.dev)
+- Go: [Cobra](https://github.com/spf13/cobra), [cli](https://github.com/urfave/cli)
+- Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
+- Java: [picocli](https://picocli.info/)
+- Julia: [ArgParse.jl](https://github.com/carlobaldassi/ArgParse.jl), [Comonicon.jl](https://github.com/comonicon/Comonicon.jl)
+- Kotlin: [clikt](https://ajalt.github.io/clikt/)
+- Node: [oclif](https://oclif.io/)
+- Deno: [parseArgs](https://jsr.io/@std/cli/doc/parse-args/~/parseArgs)
+- Perl: [Getopt::Long](https://metacpan.org/pod/Getopt::Long)
+- PHP: [console](https://github.com/symfony/console), [CLImate](https://climate.thephpleague.com)
+- Python: [Argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
+- Ruby: [TTY](https://ttytoolkit.org/)
+- Rust: [clap](https://docs.rs/clap)
+- Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
 
 **Return zero exit code on success, non-zero on failure.**
 Exit codes are how scripts determine whether a program succeeded or failed, so you should report this correctly.
@@ -373,6 +374,7 @@ Users tend to use examples over other forms of documentation, so show them first
 If it helps explain what it’s doing and it isn’t too long, show the actual output too.
 
 You can tell a story with a series of examples, building your way toward complex uses.
+
 <!-- TK example? -->
 
 **If you’ve got loads of examples, put them somewhere else,** in a cheat sheet command or a web page.
@@ -544,11 +546,13 @@ but it can also help the usability for humans using programs.
 For example, a user should be able to pipe output to `grep` and it should do what they expect.
 
 > “Expect the output of every program to become the input to another, as yet unknown, program.”
-— [Doug McIlroy](http://web.archive.org/web/20220609080931/https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html)
+> — [Doug McIlroy](http://web.archive.org/web/20220609080931/https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html)
 
 **If human-readable output breaks machine-readable output, use `--plain` to display output in plain, tabular text format for integration with tools like `grep` or `awk`.**
 In some cases, you might need to output information in a different way to make it human-readable.
+
 <!-- (TK example with and without --plain) -->
+
 For example, if you are displaying a line-based table, you might choose to split a cell into multiple lines, fitting in more information while keeping it within the width of the screen.
 This breaks the expected behavior of there being one piece of data per line, so you should provide a `--plain` flag for scripts, which disables all such manipulation and outputs one record per line.
 
@@ -660,8 +664,8 @@ $ yubikey-agent -setup
 🔐 The PIN is up to 8 numbers, letters, or symbols. Not just numbers!
 ❌ The key will be lost if the PIN and PUK are locked after 3 incorrect tries.
 
-Choose a new PIN/PUK: 
-Repeat the PIN/PUK: 
+Choose a new PIN/PUK:
+Repeat the PIN/PUK:
 
 🧪 Reticulating splines …
 
@@ -776,7 +780,7 @@ Here's a list of commonly used options:
 - `-h`, `--help`: Help.
   This should only mean help.
   See the [help](#help) section.
-- `-n`, `--dry-run`: Dry run. 
+- `-n`, `--dry-run`: Dry run.
   Do not run the command, but describe the changes that would occur if the command were run. For example, `rsync`, `git add`.
 - `--no-input`: See the [interactivity](#interactivity) section.
 - `-o`, `--output`: Output file.
@@ -892,7 +896,7 @@ If you have several tools that are very closely related, you can make them easie
 They’re useful for sharing stuff—global flags, help text, configuration, storage mechanisms.
 
 **Be consistent across subcommands.**
-Use the same flag names for the same things, have similar output formatting, etc. 
+Use the same flag names for the same things, have similar output formatting, etc.
 
 **Use consistent names for multiple levels of subcommand.**
 If a complex piece of software has lots of objects and operations that can be performed on those objects, it is a common pattern to use two levels of subcommand for this, where one is a noun and one is a verb.
@@ -944,14 +948,14 @@ For example, `docker pull`’s multiple progress bars offer crucial insight into
 $ docker image pull ruby
 Using default tag: latest
 latest: Pulling from library/ruby
-6c33745f49b4: Pull complete 
+6c33745f49b4: Pull complete
 ef072fc32a84: Extracting [================================================>  ]  7.569MB/7.812MB
-c0afb8e68e0b: Download complete 
-d599c07d28e6: Download complete 
+c0afb8e68e0b: Download complete
+d599c07d28e6: Download complete
 f2ecc74db11a: Downloading [=======================>                           ]  89.11MB/192.3MB
-3568445c8bf2: Download complete 
+3568445c8bf2: Download complete
 b0efebc74f25: Downloading [===========================================>       ]  19.88MB/22.88MB
-9cb1ba6838a0: Download complete 
+9cb1ba6838a0: Download complete
 ```
 
 One thing to be aware of: hiding logs behind progress bars when things go _well_ makes it much easier for the user to understand what’s going on, but if there is an error, make sure you print out the logs.
@@ -1052,7 +1056,6 @@ Configuration generally falls into a few categories:
 1.  Likely to vary from one invocation of the command to the next.
 
     Examples:
-
     - Setting the level of debugging output
     - Enabling a safe mode or dry run of a program
 
@@ -1066,7 +1069,6 @@ Configuration generally falls into a few categories:
     This type of configuration is often specific to an individual computer.
 
     Examples:
-
     - Providing a non-default path to items needed for a program to start
     - Specifying how or whether color should appear in output
     - Specifying an HTTP proxy server to route all requests through
@@ -1153,6 +1155,7 @@ If it seems like these limitations will hamper usability or security, then a ded
 
 **Do not read secrets from environment variables.**
 While environment variables may be convenient for storing secrets, they have proven too prone to leakage:
+
 - Exported environment variables are sent to every process, and from there can easily leak into logs or be exfiltrated
 - Shell substitutions like `curl -H "Authorization: Bearer $BEARER_TOKEN"` will leak into globally-readable process state.
   (cURL offers the `-H @filename` alternative for reading sensitive headers from a file.)

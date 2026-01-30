@@ -8,33 +8,36 @@ Skills follow the [Agent Skills](https://agentskills.io/) format.
 
 ### cli-guidelines
 
-Design and build well-crafted command-line interfaces following modern best practices. Based on the [Command Line Interface Guidelines](https://clig.dev/).
+Design and build well-crafted command-line interfaces following modern best practices. Based on the [Command Line Interface Guidelines](https://clig.dev/). Contains 31 focused, actionable rules prioritized by impact.
 
 **Use when:**
+
 - Creating CLI tools or adding commands/subcommands
-- Implementing help text and documentation
-- Handling errors and user input
-- Parsing arguments/flags
-- Improving CLI UX and output formatting
+- Implementing help text and error handling
+- Parsing arguments and flags
 - Designing interactive prompts
 - Setting up configuration systems
-- Optimizing CLI robustness and performance
+- Improving CLI UX and output formatting
+- Reviewing CLI code for best practices
+- Refactoring existing command-line tools
 
 **Categories covered:**
-- **The Basics** (must have) - Exit codes, stdout/stderr, argument parsing
-- **Help & Documentation** - Help text, examples, web docs, man pages
-- **Output & Errors** - TTY detection, JSON/plain output, error messages
-- **Arguments & Flags** - Flag conventions, stdin/stdout support, secrets handling
-- **Interactivity** - Prompts, passwords, Ctrl-C handling
-- **Subcommands** - Multi-level commands, consistency patterns
-- **Configuration** - Config precedence, XDG spec, environment variables
-- **Robustness** - Progress indicators, timeouts, crash-only design
-- **Signals** - Signal handling, cleanup operations
-- **Future-proofing** - Versioning, deprecation, breaking changes
-- **Naming & Distribution** - Command naming, packaging, installation
-- **Analytics** - Telemetry, consent, privacy
+
+- **The Basics** (CRITICAL) - Argument parsing, exit codes, stdout/stderr, help flags
+- **Help & Documentation** (CRITICAL) - Concise help, examples, suggestions
+- **Output Formatting** (HIGH) - TTY detection, JSON/plain output, state changes
+- **Error Handling** (HIGH) - Human-friendly errors, signal-to-noise, important info placement
+- **Arguments & Flags** (HIGH) - Prefer flags, standard names, no secrets in flags
+- **Interactivity** (HIGH) - TTY checks, --no-input flag, prompts
+- **Signals & Control** (HIGH) - Ctrl-C handling, graceful shutdown
+- **Robustness** (MEDIUM-HIGH) - 100ms response, progress indicators, validation, idempotency
+- **Subcommands** (MEDIUM-HIGH) - Consistency across commands
+- **Configuration** (MEDIUM) - Precedence rules, XDG spec
+- **Future-proofing** (MEDIUM) - Additive changes, deprecation warnings
+- **Naming & Distribution** (LOW-MEDIUM) - Simple names, ergonomics
 
 **Philosophy:**
+
 1. Human-first design: Design for humans, optimize for machines second
 2. Simple parts that work together: Composable via stdin/stdout/stderr, exit codes, JSON
 3. Consistency across programs: Follow existing patterns users already know
@@ -45,22 +48,27 @@ Design and build well-crafted command-line interfaces following modern best prac
 8. Empathy: Be on the user's side, help them succeed
 9. Chaos: Know when to break the rules—do so with intention
 
-**Reference files:**
-- `philosophy.md` - Design principles and philosophy
-- `basics.md` - Exit codes, stdout/stderr, parsing libraries
-- `help.md` - Implementing `--help`, subcommand help
-- `documentation.md` - Web docs, man pages
-- `output.md` - Colors, JSON, progress, paging
-- `errors.md` - Error messages, debugging output
-- `args-flags.md` - Parsing, standard flags, secrets
-- `interactivity.md` - Prompts, passwords, escape handling
-- `subcommands.md` - Multi-level commands, consistency
-- `config.md` - Config files, env vars, XDG spec
-- `robustness.md` - Progress, timeouts, crash-only
-- `signals.md` - Ctrl-C handling, cleanup
-- `future-proofing.md` - Versioning, deprecation
-- `naming.md` - Command names, packaging
-- `analytics.md` - Telemetry, consent
+**Structure:**
+
+- 31 focused rule files in `rules/` directory
+- Each rule: ~50-80 lines with examples and implementation code
+- Comprehensive reference docs in `references/` for deeper context
+- AGENTS.md: Compiled guide with all rules (auto-generated)
+
+**Rule prefixes by category:**
+
+- `basics-` - Critical fundamentals (parsing, exit codes, streams, help)
+- `help-` - Help text and documentation patterns
+- `output-` - Output formatting (TTY, JSON, plain, state)
+- `errors-` - Error handling and messaging
+- `args-` - Arguments and flags (prefer flags, standards, secrets)
+- `interactive-` - Prompts and interactivity
+- `signals-` - Signal handling (Ctrl-C, cleanup)
+- `robustness-` - Reliability (validation, progress, idempotency)
+- `subcommands-` - Multi-command consistency
+- `config-` - Configuration management
+- `future-` - Future-proofing and compatibility
+- `naming-` - Command naming and distribution
 
 ## Installation
 
@@ -73,12 +81,15 @@ npx skills add MildTomato/agent-skills --skill cli-guidelines
 Skills are automatically available once installed. The agent will use them when relevant tasks are detected.
 
 **Examples:**
+
 ```
 Create a CLI tool with proper help text and error handling
 ```
+
 ```
 Review this CLI for best practices
 ```
+
 ```
 Help me implement subcommands with consistent flags
 ```
@@ -86,9 +97,10 @@ Help me implement subcommands with consistent flags
 ## Skill Structure
 
 Each skill contains:
+
 - `SKILL.md` - Instructions for the agent
 - `scripts/` - Helper scripts for automation (optional)
-- `references/` - Supporting documentation (optional)
+- `rules/` or `references/` - Supporting documentation (optional)
 
 ## License
 

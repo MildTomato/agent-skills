@@ -56,7 +56,7 @@ $ mycmd echo "hello world"     # Implies 'run' subcommand
 $ mycmd run echo "hello world"
 ```
 
-**The problem:** Now you can never add a subcommand named `echo`—or *anything at all*—without risking breaking existing usages. If there's a script out there that uses `mycmd echo`, it will do something entirely different after that user upgrades.
+**The problem:** Now you can never add a subcommand named `echo`—or _anything at all_—without risking breaking existing usages. If there's a script out there that uses `mycmd echo`, it will do something entirely different after that user upgrades.
 
 ## Avoid Arbitrary Abbreviations
 
@@ -89,6 +89,7 @@ mycmd ins       # Arbitrary abbreviation (unstable)
 The server most likely to not exist in 20 years is the one that you are maintaining right now.
 
 **Avoid:**
+
 - Blocking calls to external services on startup
 - Hard dependencies on remote APIs for core functionality
 - Built-in analytics that phone home

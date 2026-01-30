@@ -39,6 +39,7 @@ go func() {
 **If a user hits Ctrl-C during clean-up operations that might take a long time, skip them.** Tell the user what will happen when they hit Ctrl-C again, in case it is a destructive action.
 
 Example from Docker Compose:
+
 ```
 $ docker-compose up
 …
@@ -55,7 +56,7 @@ def handler(signum, frame):
     if force_quit:
         print("\nForce quitting!", file=sys.stderr)
         sys.exit(130)
-    
+
     force_quit = True
     print("\nStopping... (press Ctrl+C again to force)", file=sys.stderr)
     graceful_shutdown()
@@ -68,7 +69,7 @@ var forceQuit bool
 func handleSignal() {
     c := make(chan os.Signal, 1)
     signal.Notify(c, os.Interrupt)
-    
+
     go func() {
         for range c {
             if forceQuit {
@@ -96,13 +97,13 @@ See also: [Crash-only software: More than meets the eye](https://lwn.net/Article
 
 ## Common Signals
 
-| Signal | Keyboard | Number | Default Action | Your Response |
-|--------|----------|--------|----------------|---------------|
-| SIGINT | Ctrl-C | 2 | Terminate | Clean exit, exit code 130 |
-| SIGTERM | (none) | 15 | Terminate | Graceful shutdown |
-| SIGQUIT | Ctrl-\\ | 3 | Core dump | Can ignore or use for debug |
-| SIGHUP | (none) | 1 | Terminate | Reload config or terminate |
-| SIGPIPE | (none) | 13 | Terminate | Usually ignore |
+| Signal  | Keyboard | Number | Default Action | Your Response               |
+| ------- | -------- | ------ | -------------- | --------------------------- |
+| SIGINT  | Ctrl-C   | 2      | Terminate      | Clean exit, exit code 130   |
+| SIGTERM | (none)   | 15     | Terminate      | Graceful shutdown           |
+| SIGQUIT | Ctrl-\\  | 3      | Core dump      | Can ignore or use for debug |
+| SIGHUP  | (none)   | 1      | Terminate      | Reload config or terminate  |
+| SIGPIPE | (none)   | 13     | Terminate      | Usually ignore              |
 
 ## Exit Codes for Signals
 
@@ -123,7 +124,7 @@ import threading
 
 def cleanup_with_timeout(timeout=5):
     cleanup_done = threading.Event()
-    
+
     def do_cleanup():
         try:
             # Your cleanup logic
@@ -131,10 +132,10 @@ def cleanup_with_timeout(timeout=5):
             save_state()
         finally:
             cleanup_done.set()
-    
+
     thread = threading.Thread(target=do_cleanup)
     thread.start()
-    
+
     if not cleanup_done.wait(timeout=timeout):
         print("Cleanup timed out, exiting anyway", file=sys.stderr)
 ```
@@ -175,6 +176,7 @@ $
 ```
 
 SSH uses the `~` escape character:
+
 - `~.` - Disconnect
 - `~^Z` - Suspend
 - `~~` - Send literal ~

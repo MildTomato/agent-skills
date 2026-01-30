@@ -5,6 +5,7 @@
 **Display extensive help text when asked.** Display help when passed `-h` or `--help` flags. This also applies to subcommands which might have their own help text.
 
 **Show help on:**
+
 - `-h`
 - `--help`
 - `help` subcommand (if git-like)
@@ -18,6 +19,7 @@
 You can ignore this guideline if your program is interactive by default (e.g. `npm init`).
 
 The concise help text should only include:
+
 1. A description of what your program does
 2. One or two example invocations
 3. Descriptions of flags, unless there are lots of them
@@ -223,7 +225,7 @@ Rather than suggesting the corrected syntax, you might be tempted to just run it
 
 **Secondly**, be aware that if you change what the user typed, they won't learn the correct syntax. In effect, you're ruling that the way they typed it is valid and correct, and you're committing to supporting that indefinitely. Be intentional in making that decision, and document both syntaxes.
 
-*Further reading: ["Do What I Mean"](http://www.catb.org/~esr/jargon/html/D/DWIM.html)*
+_Further reading: ["Do What I Mean"](http://www.catb.org/~esr/jargon/html/D/DWIM.html)_
 
 ## Support and Documentation Links
 

@@ -3,6 +3,7 @@
 ## When to Use
 
 Use subcommands when you have:
+
 - Multiple distinct operations on the same resource
 - A complex tool that would otherwise have too many flags
 - Related tools that benefit from shared configuration/context
@@ -12,6 +13,7 @@ Examples: `git commit`, `docker container ls`, `kubectl get pods`
 ## Structure Patterns
 
 ### Single Level
+
 ```
 mycmd <subcommand> [options]
 
@@ -21,6 +23,7 @@ mycmd deploy
 ```
 
 ### Two Levels (noun-verb or verb-noun)
+
 ```
 # Noun-verb (more common)
 mycmd container create
@@ -37,6 +40,7 @@ mycmd list containers
 ## Consistency Rules
 
 **Use the same flag names across subcommands:**
+
 ```bash
 mycmd users list --output json
 mycmd projects list --output json  # Same flag, same behavior
@@ -53,6 +57,7 @@ mycmd projects list --output json  # Same flag, same behavior
 ## Avoid Ambiguity
 
 Don't have similarly-named commands:
+
 ```bash
 # Confusing
 mycmd update   # Update what?
@@ -66,6 +71,7 @@ mycmd upgrade-version  # Upgrade to new version
 ## Help for Subcommands
 
 Support all these patterns:
+
 ```bash
 mycmd help
 mycmd --help
@@ -75,6 +81,7 @@ mycmd help subcommand
 ```
 
 Each subcommand should have its own help:
+
 ```
 $ mycmd deploy --help
 Deploy the application to a target environment.
@@ -107,6 +114,7 @@ mycmd deploy staging --force
 ```
 
 **Document which flags are global:**
+
 ```
 GLOBAL OPTIONS
   --verbose, -v   Enable verbose output
@@ -129,6 +137,7 @@ mycmd ins    # Also install?
 This prevents adding new subcommands starting with `i` later.
 
 **Explicit aliases are OK:**
+
 ```bash
 mycmd install   # Full command
 mycmd i         # Documented alias
@@ -150,6 +159,7 @@ If you want shortcuts, use explicit aliases.
 ## Shared Configuration
 
 Subcommands should share:
+
 - Config file location
 - Authentication/credentials
 - Output formatting preferences
@@ -165,6 +175,7 @@ mycmd projects list # Also uses JSON format
 ## Exit Codes
 
 Use consistent exit codes across all subcommands:
+
 ```
 0 - Success
 1 - General error

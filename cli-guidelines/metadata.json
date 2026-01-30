@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "organization": "CLI Guidelines",
+  "date": "January 2026",
+  "abstract": "Comprehensive guide to designing and building well-crafted command-line interfaces following modern best practices. Designed for AI agents and LLMs to follow when creating, reviewing, or refactoring CLI tools. Contains guidelines across 15 categories covering philosophy, basics, help text, output formatting, error handling, arguments/flags, interactivity, subcommands, configuration, robustness, signals, future-proofing, naming, distribution, and analytics.",
+  "references": [
+    "https://clig.dev/",
+    "https://github.com/cli-guidelines/cli-guidelines",
+    "https://en.wikipedia.org/wiki/The_Unix_Programming_Environment",
+    "https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html",
+    "https://www.gnu.org/prep/standards/html_node/Program-Behavior.html",
+    "https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46",
+    "https://devcenter.heroku.com/articles/cli-style-guide"
+  ]
+}

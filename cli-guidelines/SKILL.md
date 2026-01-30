@@ -1,209 +1,222 @@
 ---
 name: cli-guidelines
-description: Design and build well-crafted command-line interfaces following modern best practices. Use when creating CLI tools, adding commands/subcommands, implementing help text, handling errors, parsing arguments/flags, or improving CLI UX. Covers output formatting, interactivity, configuration, robustness, and naming conventions.
+description: Design and build well-crafted command-line interfaces following modern best practices. This skill should be used when creating CLI tools, adding commands/subcommands, implementing help text, handling errors, parsing arguments/flags, or improving CLI UX. Triggers on tasks involving command-line tools, terminal interfaces, argument parsing, error handling, or CLI design.
+license: MIT
+metadata:
+  author: CLI Guidelines
+  version: '1.0.0'
 ---
 
-# CLI Design Skill
+# CLI Design Guidelines
 
-Design human-first CLIs that are composable, consistent, and robust. Based on the [Command Line Interface Guidelines](https://clig.dev/).
+Comprehensive guide to designing command-line interfaces following modern best practices. Based on the [Command Line Interface Guidelines](https://clig.dev/). Prioritized by impact to guide CLI development and code review.
+
+## When to Apply
+
+Reference these guidelines when:
+
+- Creating new CLI tools or adding commands/subcommands
+- Implementing help text and error handling
+- Parsing arguments and flags
+- Designing interactive prompts
+- Setting up configuration systems
+- Improving CLI UX and output formatting
+- Reviewing CLI code for best practices
+- Refactoring existing command-line tools
+
+## Rule Categories by Priority
+
+| Priority | Category              | Impact      | Prefix         |
+| -------- | --------------------- | ----------- | -------------- |
+| 1        | The Basics            | CRITICAL    | `basics-`      |
+| 2        | AI Agent Integration  | CRITICAL    | `agents-`      |
+| 3        | Help & Documentation  | CRITICAL    | `help-`        |
+| 4        | Output Formatting     | HIGH        | `output-`      |
+| 5        | Error Handling        | HIGH        | `errors-`      |
+| 6        | Arguments & Flags     | HIGH        | `args-`        |
+| 7        | Interactivity         | HIGH        | `interactive-` |
+| 8        | Signals & Control     | HIGH        | `signals-`     |
+| 9        | Robustness            | MEDIUM-HIGH | `robustness-`  |
+| 10       | Subcommands           | MEDIUM-HIGH | `subcommands-` |
+| 11       | Configuration         | MEDIUM      | `config-`      |
+| 12       | Future-proofing       | MEDIUM      | `future-`      |
+| 13       | Naming & Distribution | LOW-MEDIUM  | `naming-`      |
+| 14       | Documentation         | MEDIUM      | `help-`        |
+| 15       | Analytics             | MEDIUM      | `analytics-`   |
+
+## Quick Reference
+
+### 1. The Basics (CRITICAL)
+
+- `basics-use-parsing-library` - Use argument parsing library (don't roll your own)
+- `basics-exit-codes` - Return 0 on success, non-zero on failure
+- `basics-stdout-stderr` - Send output to stdout, messages/errors to stderr
+- `basics-help-flags` - Support `-h` and `--help` flags
+- `basics-full-flags` - Have full-length versions of all flags
+
+### 2. AI Agent Integration (CRITICAL)
+
+- `agents-json-required` - Always support --json for agent consumption
+- `agents-structured-errors` - Provide structured error information
+- `agents-exit-codes-documented` - Document all exit codes
+- `agents-no-prompts-default` - Avoid interactive prompts, use flags
+- `agents-yes-flag` - Provide --yes flag to skip confirmations
+- `agents-progress-to-stderr` - Send progress to stderr, data to stdout
+- `agents-deterministic-output` - Ensure deterministic, versioned output
+- `agents-dry-run` - Provide --dry-run for safety
+- `agents-help-machine-readable` - Make help text machine-readable
+
+### 3. Help & Documentation (CRITICAL)
+
+- `help-concise-default` - Display concise help when run with no args
+- `help-lead-examples` - Lead with examples in help text
+- `help-suggest-corrections` - Suggest corrections for typos
+
+### 4. Output Formatting (HIGH)
+
+- `output-tty-detection` - Check if TTY before using colors/animations
+- `output-json-flag` - Support `--json` for machine-readable output
+- `output-plain-flag` - Support `--plain` for script-friendly output
+- `output-state-changes` - Tell the user when you change state
+- `output-pager` - Use a pager for long output
+
+### 5. Error Handling (HIGH)
+
+- `errors-rewrite-for-humans` - Catch errors and rewrite for humans
+- `errors-signal-to-noise` - Maintain signal-to-noise ratio in error output
+- `errors-important-info-end` - Put important info at end of output
+- `errors-exit-code-mapping` - Map exit codes to failure modes
+
+### 6. Arguments & Flags (HIGH)
+
+- `args-prefer-flags` - Prefer flags over positional arguments
+- `args-standard-names` - Use standard flag names (`-f/--force`, `-n/--dry-run`)
+- `args-no-secrets-flags` - Don't read secrets from flags (use files or stdin)
+- `args-stdin-stdout` - Accept `-` to read from stdin / write to stdout
+- `args-order-independent` - Make flags order-independent
+
+### 7. Interactivity (HIGH)
+
+- `interactive-tty-check` - Only prompt if stdin is a TTY
+- `interactive-no-input-flag` - Support `--no-input` to disable prompts
+- `interactive-password-no-echo` - Don't echo passwords as user types
+
+### 8. Signals & Control (HIGH)
+
+- `signals-exit-on-ctrl-c` - Exit immediately on Ctrl-C
+- `signals-crash-only-design` - Design for crash-only operation
+
+### 9. Robustness (MEDIUM-HIGH)
+
+- `robustness-100ms-response` - Print something within 100ms
+- `robustness-progress-indicators` - Show progress for long operations
+- `robustness-validate-early` - Validate input early, fail fast
+- `robustness-idempotent` - Make operations idempotent/recoverable
+- `robustness-network-timeouts` - Set timeouts on network operations
+
+### 10. Subcommands (MEDIUM-HIGH)
+
+- `subcommands-consistency` - Be consistent across subcommands (same flags, output)
+- `subcommands-consistent-verbs` - Use consistent verbs (create/get/update/delete)
+- `subcommands-no-abbreviations` - Don't allow arbitrary abbreviations
+- `subcommands-no-catch-all` - Don't have catch-all subcommands
+
+### 11. Configuration (MEDIUM)
+
+- `config-precedence` - Follow precedence: Flags > Env vars > Project > User > System
+- `config-xdg-spec` - Follow XDG Base Directory spec for config locations
+
+### 12. Future-proofing (MEDIUM)
+
+- `future-additive-changes` - Keep changes additive (add flags, don't change behavior)
+
+### 13. Naming & Distribution (LOW-MEDIUM)
+
+- `naming-simple-memorable` - Use simple, memorable, lowercase command names
+- `naming-distribute-single-binary` - Distribute as single binary when possible
+
+### 14. Help & Documentation (MEDIUM)
+
+- `help-web-documentation` - Provide web-based documentation
+
+### 15. Analytics (MEDIUM)
+
+- `analytics-no-phone-home` - Don't phone home without consent
 
 ## Philosophy
 
-Read [philosophy.md](references/philosophy.md) for full explanations. These are the fundamental principles:
+These are the fundamental principles of good CLI design:
 
-1. **Human-first design**: Design for humans, optimize for machines second
-2. **Simple parts that work together**: Composable via stdin/stdout/stderr, exit codes, JSON
-3. **Consistency across programs**: Follow existing patterns users already know
-4. **Saying (just) enough**: Not too much output, not too little
-5. **Ease of discovery**: Help users learn through suggestions, examples, and clear errors
-6. **Conversation as the norm**: CLI interaction is iterative—guide the user through it
-7. **Robustness**: Handle failures gracefully, be responsive, feel solid
-8. **Empathy**: Be on the user's side, help them succeed
-9. **Chaos**: Know when to break the rules—do so with intention
+1. **Human-first design** - Design for humans, optimize for machines second
+2. **Simple parts that work together** - Composable via stdin/stdout/stderr, exit codes, JSON
+3. **Consistency across programs** - Follow existing patterns users already know
+4. **Saying (just) enough** - Not too much output, not too little
+5. **Ease of discovery** - Help users learn through suggestions, examples, clear errors
+6. **Conversation as the norm** - CLI interaction is iterative—guide the user through it
+7. **Robustness** - Handle failures gracefully, be responsive, feel solid
+8. **Empathy** - Be on the user's side, help them succeed
+9. **Chaos** - Know when to break the rules—do so with intention
 
-## Quick Reference Checklist
+## Structure
 
-### The Basics (must have)
+This skill contains:
 
-See [basics.md](references/basics.md) for details.
+- **`rules/`** - Focused, actionable rules
+  - Each rule has frontmatter (title, impact, tags)
+  - Includes incorrect/correct code examples
+  - TypeScript/JavaScript examples with modern libraries
+- **`references/`** - Comprehensive topic guides (for deeper context)
+  - Background documentation and detailed explanations
+  - Loaded by agents only when deeper understanding is needed
+- **`AGENTS.md`** - Complete compiled guide (auto-generated from rules)
+  - All rules in one document
+  - Full table of contents
+  - Searchable reference
 
-- [ ] Use argument parsing library (don't roll your own)
-- [ ] Return 0 on success, non-zero on failure
-- [ ] Send output to `stdout`, messages/errors to `stderr`
-- [ ] Support `-h` and `--help` flags
-- [ ] Have full-length versions of all flags (`-v` → `--verbose`)
+## How to Use
 
-### Help & Documentation
-
-See [help.md](references/help.md) and [documentation.md](references/documentation.md).
-
-- [ ] Display concise help when run with no args (if args required)
-- [ ] Display full help on `-h` and `--help`
-- [ ] Lead with examples in help text
-- [ ] Suggest corrections for typos
-- [ ] Link to web docs from help text
-- [ ] Provide web-based documentation
-- [ ] Consider providing man pages
-
-### Output & Errors
-
-See [output.md](references/output.md) and [errors.md](references/errors.md).
-
-- [ ] Check if TTY before using colors/animations
-- [ ] Support `--json` for machine-readable output
-- [ ] Support `--plain` for script-friendly output
-- [ ] Catch errors and rewrite for humans
-- [ ] Put important info at end of output (where eyes go)
-- [ ] Use a pager for long output
-
-### Arguments & Flags
-
-See [args-flags.md](references/args-flags.md).
-
-- [ ] Prefer flags over positional args
-- [ ] Use standard flag names (`-f/--force`, `-n/--dry-run`, `-q/--quiet`)
-- [ ] Never require prompts—always allow flag input
-- [ ] Accept `-` to read from stdin / write to stdout
-- [ ] Don't read secrets from flags (use `--password-file` or stdin)
-- [ ] Make arguments, flags, and subcommands order-independent
-
-### Interactivity
-
-See [interactivity.md](references/interactivity.md).
-
-- [ ] Only prompt if stdin is a TTY
-- [ ] Support `--no-input` to disable prompts
-- [ ] Don't echo passwords as user types
-- [ ] Make Ctrl-C always work
-
-### Subcommands
-
-See [subcommands.md](references/subcommands.md).
-
-- [ ] Be consistent across subcommands (same flags, same output)
-- [ ] Use consistent verbs (create/get/update/delete)
-- [ ] Don't allow arbitrary abbreviations
-- [ ] Don't have catch-all subcommands
-
-### Configuration
-
-See [config.md](references/config.md).
-
-- [ ] Follow precedence: Flags > Env vars > Project config > User config > System config
-- [ ] Follow XDG Base Directory spec for config locations
-- [ ] Don't store secrets in environment variables or flags
-
-### Robustness
-
-See [robustness.md](references/robustness.md).
-
-- [ ] Print something within 100ms
-- [ ] Show progress for long operations
-- [ ] Make operations idempotent/recoverable
-- [ ] Validate input early, fail fast
-- [ ] Set timeouts on network operations
-
-### Signals
-
-See [signals.md](references/signals.md).
-
-- [ ] Exit immediately on Ctrl-C
-- [ ] Allow second Ctrl-C to force quit during cleanup
-- [ ] Design for crash-only operation
-
-### Future-proofing
-
-See [future-proofing.md](references/future-proofing.md).
-
-- [ ] Keep changes additive
-- [ ] Warn before breaking changes
-- [ ] Don't create time bombs (external dependencies)
-
-### Naming & Distribution
-
-See [naming.md](references/naming.md).
-
-- [ ] Simple, memorable, lowercase command name
-- [ ] Easy to type (test it!)
-- [ ] Distribute as single binary if possible
-- [ ] Make it easy to uninstall
-
-### Analytics
-
-See [analytics.md](references/analytics.md).
-
-- [ ] Don't phone home without consent
-- [ ] Prefer opt-in over opt-out
-- [ ] Consider alternatives (instrument docs, talk to users)
-
-## Decision Trees
-
-### Choosing output format
+Read individual rule files for specific guidance:
 
 ```
-Is stdout a TTY?
-├─ Yes → Use colors, formatting, progress bars
-└─ No → Plain text, no animations
-         ├─ Was --json passed? → Output JSON
-         └─ Was --plain passed? → One record per line
+rules/basics-use-parsing-library.md
+rules/agents-json-required.md
+rules/output-tty-detection.md
 ```
 
-### Handling dangerous operations
+Each rule file contains:
+
+- Brief explanation of why it matters
+- Incorrect code example with explanation
+- Correct code example with explanation
+- Additional context and implementation details
+
+For deeper background, see reference files:
 
 ```
-How dangerous is the operation?
-├─ Mild (delete file) → Maybe prompt, maybe not
-├─ Moderate (delete dir, remote resource) → Prompt y/n or require --force
-└─ Severe (delete server/app) → Require typing resource name or --confirm="name"
+references/philosophy.md
+references/basics.md
 ```
 
-### Configuration precedence (highest to lowest)
+## Full Compiled Document
 
-1. Flags
-2. Environment variables
-3. Project config (`.env`, `config.json`)
-4. User config (`~/.config/myapp/`)
-5. System config (`/etc/myapp/`)
-
-## Reference Files
-
-Load these as needed for detailed guidance:
-
-| Topic | File | When to read |
-|-------|------|--------------|
-| Philosophy | [philosophy.md](references/philosophy.md) | Understanding design principles |
-| The Basics | [basics.md](references/basics.md) | Exit codes, stdout/stderr, parsing |
-| Help text | [help.md](references/help.md) | Implementing `--help`, subcommand help |
-| Documentation | [documentation.md](references/documentation.md) | Web docs, man pages |
-| Output formatting | [output.md](references/output.md) | Colors, JSON, progress, paging |
-| Error handling | [errors.md](references/errors.md) | Error messages, debugging output |
-| Arguments & flags | [args-flags.md](references/args-flags.md) | Parsing, standard flags, secrets |
-| Interactivity | [interactivity.md](references/interactivity.md) | Prompts, passwords, escape handling |
-| Subcommands | [subcommands.md](references/subcommands.md) | Multi-level commands, consistency |
-| Configuration | [config.md](references/config.md) | Config files, env vars, XDG spec |
-| Robustness | [robustness.md](references/robustness.md) | Progress, timeouts, crash-only |
-| Signals | [signals.md](references/signals.md) | Ctrl-C handling, cleanup |
-| Future-proofing | [future-proofing.md](references/future-proofing.md) | Versioning, deprecation |
-| Naming & distribution | [naming.md](references/naming.md) | Command names, packaging |
-| Analytics | [analytics.md](references/analytics.md) | Telemetry, consent |
+For the complete guide with all rules expanded: `AGENTS.md`
 
 ## Common Argument Parsing Libraries
 
-| Language | Libraries |
-|----------|-----------|
-| Go | Cobra, urfave/cli |
-| Python | Click, Typer, argparse |
-| Node | oclif, commander |
-| Rust | clap |
-| Ruby | TTY |
-| Java | picocli |
-| Swift | swift-argument-parser |
-| Multi-platform | docopt |
+| Language       | Libraries              |
+| -------------- | ---------------------- |
+| Node           | oclif, commander       |
+| Go             | Cobra, urfave/cli      |
+| Python         | Click, Typer, argparse |
+| Rust           | clap                   |
+| Ruby           | TTY                    |
+| Java           | picocli                |
+| Swift          | swift-argument-parser  |
+| Multi-platform | docopt                 |
 
 ## Further Reading
 
-- [The Unix Programming Environment](https://en.wikipedia.org/wiki/The_Unix_Programming_Environment) — Kernighan and Pike
+- [Command Line Interface Guidelines](https://clig.dev/)
+- [The Unix Programming Environment](https://en.wikipedia.org/wiki/The_Unix_Programming_Environment)
 - [POSIX Utility Conventions](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html)
-- [Program Behavior for All Programs](https://www.gnu.org/prep/standards/html_node/Program-Behavior.html) — GNU Coding Standards
-- [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46) — Jeff Dickey
-- [CLI Style Guide](https://devcenter.heroku.com/articles/cli-style-guide) — Heroku
+- [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46)

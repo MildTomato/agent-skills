@@ -3,6 +3,7 @@
 ## Responsiveness
 
 **Print something within 100ms:**
+
 ```python
 print("Connecting to server...", file=sys.stderr)
 # Then do the slow network call
@@ -27,12 +28,14 @@ Processing: 45%|████████████░░░░░░░░░|
 ```
 
 **Libraries:**
+
 - Python: `tqdm`
 - Go: `schollz/progressbar`
 - Node: `node-progress`, `ora`
 - Rust: `indicatif`
 
 **Rules:**
+
 - Only show in TTY (check `isatty`)
 - Show estimated time remaining
 - Animate to show activity (not frozen)
@@ -50,6 +53,7 @@ Downloading files:
 ```
 
 **Rules:**
+
 - Don't interleave output confusingly
 - Use a library that handles this (tqdm, progressbar)
 - On error, show which task failed
@@ -70,6 +74,7 @@ client := &http.Client{
 ```
 
 **Make timeouts configurable:**
+
 ```bash
 mycmd fetch --timeout 60
 ```
@@ -85,7 +90,7 @@ def main():
         die(f"Input file not found: {args.input}")
     if not is_valid_email(args.email):
         die(f"Invalid email: {args.email}")
-    
+
     # Now do the actual work
     process()
 ```
@@ -104,6 +109,7 @@ def deploy():
 ```
 
 **For file operations:**
+
 ```python
 # Idempotent: creates only if doesn't exist
 os.makedirs(path, exist_ok=True)

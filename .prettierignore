@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+reference/
+
+# Generated files
+**/AGENTS.md
+
+# Build artifacts
+dist/
+build/
+*.log
+
+# Git
+.git/

@@ -7,6 +7,7 @@ Errors are documentation. Make them teach users what went wrong and how to fix i
 ## Rewrite Errors for Humans
 
 Don't expose raw system errors:
+
 ```
 # Bad
 EACCES: permission denied, open '/etc/config'
@@ -46,6 +47,7 @@ Try: docker start postgres
 ```
 
 Map non-zero codes to failure modes:
+
 ```go
 const (
     ExitSuccess        = 0
@@ -58,6 +60,7 @@ const (
 ## Unexpected Errors
 
 For bugs/unexpected errors:
+
 1. Write debug info to file (not terminal)
 2. Show brief message with file location
 3. Provide bug report URL
@@ -76,6 +79,7 @@ Please report this issue: https://github.com/org/myapp/issues
 ## Don't Scare Users
 
 Avoid:
+
 - Full stack traces for user errors
 - Technical jargon
 - Alarming language for minor issues

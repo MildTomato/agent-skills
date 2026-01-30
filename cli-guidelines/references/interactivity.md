@@ -68,6 +68,7 @@ Deleted.
 ```
 
 For less severe actions:
+
 ```
 $ mycmd reset-config
 Reset configuration to defaults? [y/N]: y
@@ -79,16 +80,18 @@ Configuration reset.
 ## Letting Users Escape
 
 Make it clear how to exit:
+
 - Ctrl-C should always work
 - Show escape instructions for complex interactions
 
 ```
 $ mycmd interactive
 Interactive mode. Press Ctrl-D to exit, Ctrl-C to cancel.
-> 
+>
 ```
 
 For wrapped programs (like SSH, tmux):
+
 ```
 $ mycmd shell
 Connected. Press ~. to disconnect.
@@ -119,13 +122,14 @@ Step 2/3: Choose template
 > 2
 
 Step 3/3: Output directory [./myproject]
-> 
+>
 
 Creating project...
 ✅ Done! Run 'cd myproject && mycmd start' to begin.
 ```
 
 **Always allow skipping the wizard:**
+
 ```bash
 mycmd init --name myproject --template full-featured --output ./myproject
 ```
@@ -144,6 +148,7 @@ Use arrow keys to select, Enter to confirm:
 ```
 
 Or numbered selection for simpler implementation:
+
 ```
 $ mycmd select-region
 Select a region:

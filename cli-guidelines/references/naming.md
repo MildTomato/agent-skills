@@ -3,22 +3,26 @@
 ## Command Naming
 
 **Make it memorable:**
+
 - Simple, single word when possible
 - Easy to spell and type
 - Unique enough to not conflict with existing commands
 
 **Formatting rules:**
+
 - Lowercase only
 - Use dashes if needed (not underscores): `my-app` not `my_app`
 - Keep it short (users type it constantly)
 
 **Good names:**
+
 - `curl` — memorable, easy to type
 - `git` — short, unique
 - `docker` — recognizable, distinct
 - `jq` — very short for frequent use
 
 **Bad names:**
+
 - `myApplicationCLI` — too long, mixed case
 - `convert` — conflicts with ImageMagick and Windows
 - `run` — too generic
@@ -27,6 +31,7 @@
 ## Ergonomics
 
 **Easy on the hands:**
+
 - Avoid awkward key combinations
 - Test typing the name repeatedly
 - Consider common keyboard layouts
@@ -43,13 +48,13 @@ kubectl (people alias to k8s)
 
 Use consistent verb patterns:
 
-| Action | Recommended |
-|--------|-------------|
-| Create | `create`, `new`, `init` |
-| Read | `get`, `list`, `show`, `cat` |
-| Update | `update`, `set`, `edit` |
-| Delete | `delete`, `remove`, `rm` |
-| Execute | `run`, `exec`, `start` |
+| Action  | Recommended                  |
+| ------- | ---------------------------- |
+| Create  | `create`, `new`, `init`      |
+| Read    | `get`, `list`, `show`, `cat` |
+| Update  | `update`, `set`, `edit`      |
+| Delete  | `delete`, `remove`, `rm`     |
+| Execute | `run`, `exec`, `start`       |
 
 ## Distribution
 
@@ -64,6 +69,7 @@ chmod +x /usr/local/bin/mycmd
 ```
 
 **Tools for creating single binaries:**
+
 - Go: compiles to single binary by default
 - Rust: compiles to single binary by default
 - Python: PyInstaller, Nuitka
@@ -96,6 +102,7 @@ curl -sSL https://example.com/install.sh | bash
 ```
 
 **The script should:**
+
 - Detect OS and architecture
 - Download appropriate binary
 - Install to appropriate location
@@ -127,6 +134,7 @@ mycmd version 1.2.3
 ```
 
 **Include useful debug info:**
+
 ```bash
 $ mycmd --version
 mycmd 1.2.3
@@ -148,6 +156,7 @@ mycmd completion fish > ~/.config/fish/completions/mycmd.fish
 ```
 
 **Libraries that help:**
+
 - Go: Cobra (built-in completion support)
 - Python: Click (built-in), argcomplete
 - Rust: clap (built-in)
@@ -155,11 +164,13 @@ mycmd completion fish > ~/.config/fish/completions/mycmd.fish
 ## Future-proofing
 
 **Keep interfaces stable:**
+
 - Adding flags/subcommands: OK
 - Removing/changing flags: Breaking change
 - Changing output format: Breaking for scripts
 
 **Warn before breaking changes:**
+
 ```
 $ mycmd old-command
 Warning: 'old-command' is deprecated and will be removed in v2.0.
@@ -167,6 +178,7 @@ Use 'mycmd new-command' instead.
 ```
 
 **Don't create time bombs:**
+
 - Avoid dependencies on external services that may disappear
 - Don't phone home without consent
 - Include all necessary resources in the distribution

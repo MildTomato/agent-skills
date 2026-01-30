@@ -1,12 +1,13 @@
 # Documentation
 
-The purpose of help text is to give a brief, immediate sense of what your tool is, what options are available, and how to perform the most common tasks. Documentation, on the other hand, is where you go into full detail. It's where people go to understand what your tool is for, what it *isn't* for, how it works and how to do everything they might need to do.
+The purpose of help text is to give a brief, immediate sense of what your tool is, what options are available, and how to perform the most common tasks. Documentation, on the other hand, is where you go into full detail. It's where people go to understand what your tool is for, what it _isn't_ for, how it works and how to do everything they might need to do.
 
 ## Web-based Documentation
 
 **Provide web-based documentation.** People need to be able to search online for your tool's documentation, and to link other people to specific parts. The web is the most inclusive documentation format available.
 
 Benefits:
+
 - Searchable via Google/search engines
 - Linkable to specific sections
 - Accessible from any device
@@ -87,10 +88,10 @@ DESCRIPTION
 
 ## Help vs Documentation
 
-| Aspect | Help (`--help`) | Documentation |
-|--------|-----------------|---------------|
-| Length | Brief, scannable | Comprehensive |
-| Purpose | Quick reference | Full understanding |
-| Examples | 1-3 common cases | Exhaustive coverage |
-| Access | Built into CLI | Web/man pages |
-| Detail | Flags and usage | Concepts and tutorials |
+| Aspect   | Help (`--help`)  | Documentation          |
+| -------- | ---------------- | ---------------------- |
+| Length   | Brief, scannable | Comprehensive          |
+| Purpose  | Quick reference  | Full understanding     |
+| Examples | 1-3 common cases | Exhaustive coverage    |
+| Access   | Built into CLI   | Web/man pages          |
+| Detail   | Flags and usage  | Concepts and tutorials |

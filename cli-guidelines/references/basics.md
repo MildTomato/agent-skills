@@ -10,23 +10,23 @@ Don't roll your own argument parser—it's harder than it looks and you'll miss 
 
 ### Recommended Libraries
 
-| Language | Libraries |
-|----------|-----------|
-| Multi-platform | [docopt](http://docopt.org) |
-| Bash | [argbash](https://argbash.dev) |
-| Go | [Cobra](https://github.com/spf13/cobra), [urfave/cli](https://github.com/urfave/cli) |
-| Haskell | [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative) |
-| Java | [picocli](https://picocli.info/) |
-| Julia | [ArgParse.jl](https://github.com/carlobaldassi/ArgParse.jl), [Comonicon.jl](https://github.com/comonicon/Comonicon.jl) |
-| Kotlin | [clikt](https://ajalt.github.io/clikt/) |
-| Node | [oclif](https://oclif.io/) |
-| Deno | [parseArgs](https://jsr.io/@std/cli/doc/parse-args/~/parseArgs) |
-| Perl | [Getopt::Long](https://metacpan.org/pod/Getopt::Long) |
-| PHP | [symfony/console](https://github.com/symfony/console), [CLImate](https://climate.thephpleague.com) |
-| Python | [argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer) |
-| Ruby | [TTY](https://ttytoolkit.org/) |
-| Rust | [clap](https://docs.rs/clap) |
-| Swift | [swift-argument-parser](https://github.com/apple/swift-argument-parser) |
+| Language       | Libraries                                                                                                                                            |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Multi-platform | [docopt](http://docopt.org)                                                                                                                          |
+| Bash           | [argbash](https://argbash.dev)                                                                                                                       |
+| Go             | [Cobra](https://github.com/spf13/cobra), [urfave/cli](https://github.com/urfave/cli)                                                                 |
+| Haskell        | [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)                                                                     |
+| Java           | [picocli](https://picocli.info/)                                                                                                                     |
+| Julia          | [ArgParse.jl](https://github.com/carlobaldassi/ArgParse.jl), [Comonicon.jl](https://github.com/comonicon/Comonicon.jl)                               |
+| Kotlin         | [clikt](https://ajalt.github.io/clikt/)                                                                                                              |
+| Node           | [oclif](https://oclif.io/)                                                                                                                           |
+| Deno           | [parseArgs](https://jsr.io/@std/cli/doc/parse-args/~/parseArgs)                                                                                      |
+| Perl           | [Getopt::Long](https://metacpan.org/pod/Getopt::Long)                                                                                                |
+| PHP            | [symfony/console](https://github.com/symfony/console), [CLImate](https://climate.thephpleague.com)                                                   |
+| Python         | [argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer) |
+| Ruby           | [TTY](https://ttytoolkit.org/)                                                                                                                       |
+| Rust           | [clap](https://docs.rs/clap)                                                                                                                         |
+| Swift          | [swift-argument-parser](https://github.com/apple/swift-argument-parser)                                                                              |
 
 ## Exit Codes
 
@@ -43,15 +43,15 @@ fi
 
 ### Standard Exit Codes
 
-| Code | Meaning |
-|------|---------|
-| 0 | Success |
-| 1 | General error |
-| 2 | Misuse of command (bad arguments) |
-| 126 | Command found but not executable |
-| 127 | Command not found |
-| 128+N | Fatal error from signal N |
-| 130 | Terminated by Ctrl-C (128 + 2) |
+| Code  | Meaning                           |
+| ----- | --------------------------------- |
+| 0     | Success                           |
+| 1     | General error                     |
+| 2     | Misuse of command (bad arguments) |
+| 126   | Command found but not executable  |
+| 127   | Command not found                 |
+| 128+N | Fatal error from signal N         |
+| 130   | Terminated by Ctrl-C (128 + 2)    |
 
 **Map non-zero exit codes to the most important failure modes:**
 

@@ -15,13 +15,14 @@ A core tenet of the original UNIX philosophy is the idea that small, simple prog
 In the old days, pipes and shell scripts played a crucial role in the process of composing programs together. Their role might have diminished with the rise of general-purpose interpreted languages, but they certainly haven't gone away. What's more, large-scale automation—in the form of CI/CD, orchestration and configuration management—has flourished. Making programs composable is just as important as ever.
 
 Fortunately, the long-established conventions of the UNIX environment, designed for this exact purpose, still help us today:
+
 - Standard in/out/err
 - Signals
 - Exit codes
 - Plain, line-based text (easy to pipe)
 - JSON for structured data
 
-Whatever software you're building, you can be absolutely certain that people will use it in ways you didn't anticipate. Your software *will* become a part in a larger system—your only choice is over whether it will be a well-behaved part.
+Whatever software you're building, you can be absolutely certain that people will use it in ways you didn't anticipate. Your software _will_ become a part in a larger system—your only choice is over whether it will be a well-behaved part.
 
 **Most importantly, designing for composability does not need to be at odds with designing for humans first.** Much of this guide is about how to achieve both.
 
@@ -56,6 +57,7 @@ It is assumed that command-line interfaces are the opposite of this—that you h
 **These things needn't be mutually exclusive.** The efficiency of using the command-line comes from remembering commands, but there's no reason the commands can't help you learn and remember.
 
 Discoverable CLIs:
+
 - Have comprehensive help texts
 - Provide lots of examples
 - Suggest what command to run next
@@ -63,11 +65,11 @@ Discoverable CLIs:
 
 There are lots of ideas that can be stolen from GUIs to make CLIs easier to learn and use, even for power users.
 
-*Citation: The Design of Everyday Things (Don Norman), Macintosh Human Interface Guidelines*
+_Citation: The Design of Everyday Things (Don Norman), Macintosh Human Interface Guidelines_
 
 ## Conversation as the Norm
 
-GUI design, particularly in its early days, made heavy use of *metaphor*: desktops, files, folders, recycle bins. It made a lot of sense, because computers were still trying to bootstrap themselves into legitimacy. The ease of implementation of metaphors was one of the huge advantages GUIs wielded over CLIs.
+GUI design, particularly in its early days, made heavy use of _metaphor_: desktops, files, folders, recycle bins. It made a lot of sense, because computers were still trying to bootstrap themselves into legitimacy. The ease of implementation of metaphors was one of the huge advantages GUIs wielded over CLIs.
 
 Ironically, though, the CLI has embodied an accidental metaphor all along: **it's a conversation.**
 
@@ -81,21 +83,23 @@ Trial-and-error isn't the only type of conversational interaction, though. There
 - Doing a dry-run of a complex operation before running it for real.
 
 Acknowledging the conversational nature of command-line interaction means you can bring relevant techniques to bear on its design:
+
 - Suggest possible corrections when user input is invalid
 - Make the intermediate state clear when the user is going through a multi-step process
 - Confirm for them that everything looks good before they do something scary
 
 The user is conversing with your software, whether you intended it or not. At worst, it's a hostile conversation which makes them feel stupid and resentful. At best, it's a pleasant exchange that speeds them on their way with newfound knowledge and a feeling of achievement.
 
-*Further reading: [The Anti-Mac User Interface](https://www.nngroup.com/articles/anti-mac-interface/) (Don Gentner and Jakob Nielsen)*
+_Further reading: [The Anti-Mac User Interface](https://www.nngroup.com/articles/anti-mac-interface/) (Don Gentner and Jakob Nielsen)_
 
 ## Robustness
 
-Robustness is both an objective and a subjective property. Software should *be* robust, of course: unexpected input should be handled gracefully, operations should be idempotent where possible, and so on. But it should also *feel* robust.
+Robustness is both an objective and a subjective property. Software should _be_ robust, of course: unexpected input should be handled gracefully, operations should be idempotent where possible, and so on. But it should also _feel_ robust.
 
 You want your software to feel like it isn't going to fall apart. You want it to feel immediate and responsive, as if it were a big mechanical machine, not a flimsy plastic "soft switch."
 
 **Subjective robustness requires attention to detail and thinking hard about what can go wrong.** It's lots of little things:
+
 - Keeping the user informed about what's happening
 - Explaining what common errors mean
 - Not printing scary-looking stack traces
@@ -120,4 +124,4 @@ It's ironic that this document implores you to follow existing patterns, right a
 
 **The time might come when you, too, have to break the rules. Do so with intention and clarity of purpose.**
 
-> "Abandon a standard when it is demonstrably harmful to productivity or user satisfaction." — Jef Raskin, *The Humane Interface*
+> "Abandon a standard when it is demonstrably harmful to productivity or user satisfaction." — Jef Raskin, _The Humane Interface_

@@ -1,0 +1,23 @@
+{
+  "name": "agent-skills",
+  "version": "1.0.0",
+  "description": "A collection of skills for AI coding agents",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "build:all": "node build.js",
+    "format": "prettier --write \"**/*.{md,json,js,ts}\"",
+    "format:check": "prettier --check \"**/*.{md,json,js,ts}\""
+  },
+  "keywords": [
+    "agent-skills",
+    "cli",
+    "guidelines",
+    "llm",
+    "agents"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.2.4"
+  }
+}
