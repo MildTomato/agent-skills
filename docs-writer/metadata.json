@@ -2,5 +2,6 @@
   "version": "1.0.0",
   "organization": "MildTomato",
   "date": "January 2026",
-  "abstract": "Standards for writing, reviewing, and editing documentation. Covers voice and tone, language and grammar, formatting and syntax, structural guidelines, preparation workflows, and verification checklists."
+  "abstract": "Standards for writing, reviewing, and editing documentation. Covers voice and tone, language and grammar, formatting and syntax, structural guidelines, preparation workflows, and verification checklists.",
+  "author": "MildTomato"
 }

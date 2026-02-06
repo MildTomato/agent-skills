@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "organization": "Supabase",
+  "date": "February 2026",
+  "abstract": "Internal guide for AI agents building the Supabase CLI environments system. Covers the three-environment model, variable resolution, pull/push workflows, secret handling, branch overrides, local file conventions, and environment CRUD operations. For Supabase internal development use.",
+  "author": "Julien Goux (jgoux), MildTomato",
+  "references": [
+    "https://supabase.com/docs/guides/cli",
+    "https://supabase.com/docs/guides/functions/secrets",
+    "https://github.com/jgoux"
+  ]
+}

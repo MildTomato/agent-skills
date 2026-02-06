@@ -2746,6 +2746,7 @@ mycmd status --json
 ```
 
 **JSON should:**
+
 - Be valid, parseable
 - Pretty-printed (2 space indent)
 - Use consistent field names (camelCase)
@@ -2858,6 +2859,7 @@ $ mycmd list --plain | grep running | cut -f1
 ```
 
 **--plain should:**
+
 - One record per line
 - Consistent delimiters (tabs recommended)
 - No wrapping or truncation
@@ -2993,11 +2995,12 @@ if (process.stdout.isTTY) {
 
 ```typescript
 import chalk from 'chalk'
-console.log(chalk.green("Success!"))
+console.log(chalk.green('Success!'))
 // Colors in terminal, plain when piped
 ```
 
 **Also disable colors when:**
+
 - `NO_COLOR` env var is set
 - `TERM=dumb`
 - `--no-color` flag passed
@@ -3008,7 +3011,7 @@ console.log(chalk.green("Success!"))
 if (process.stderr.isTTY) {
   showProgressBar()
 } else {
-  console.error("Processing...")
+  console.error('Processing...')
 }
 ```
 

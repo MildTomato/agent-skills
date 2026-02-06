@@ -3,7 +3,7 @@ name: cli-guidelines
 description: Design and build well-crafted command-line interfaces following modern best practices. This skill should be used when creating CLI tools, adding commands/subcommands, implementing help text, handling errors, parsing arguments/flags, or improving CLI UX. Triggers on tasks involving command-line tools, terminal interfaces, argument parsing, error handling, or CLI design.
 license: MIT
 metadata:
-  author: CLI Guidelines
+  author: MildTomato
   version: '1.0.0'
 ---
 

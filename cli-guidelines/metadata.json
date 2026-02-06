@@ -3,6 +3,7 @@
   "organization": "CLI Guidelines",
   "date": "January 2026",
   "abstract": "Comprehensive guide to designing and building well-crafted command-line interfaces following modern best practices. Designed for AI agents and LLMs to follow when creating, reviewing, or refactoring CLI tools. Contains guidelines across 15 categories covering philosophy, basics, help text, output formatting, error handling, arguments/flags, interactivity, subcommands, configuration, robustness, signals, future-proofing, naming, distribution, and analytics.",
+  "author": "MildTomato",
   "references": [
     "https://clig.dev/",
     "https://github.com/cli-guidelines/cli-guidelines",

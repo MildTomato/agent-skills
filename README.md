@@ -56,12 +56,47 @@ tone, language and grammar, formatting, structure, and verification.
 - **Execution** - Gaps, structure, tone, clarity, consistency
 - **Verification** - Accuracy, self-review, link checks
 
+### supabase-environments
+
+**Internal Supabase development guide** for implementing the Supabase CLI
+environments system with three-environment model, variable resolution, pull/push
+workflows, secret handling, branch overrides, and local file conventions.
+
+_Note: This skill is for Supabase internal development use._
+
+**Use when:**
+
+- Implementing `env` CLI commands (pull, push, list, set, unset, create, delete,
+  seed)
+- Building variable resolution logic for local or deployed contexts
+- Handling secret variables with write-only access patterns
+- Implementing branch-to-environment mapping and overrides
+- Designing pull/push workflows with diff display
+- Managing local `.env` and `.env.local` file structure
+- Building bulk upsert API endpoints for environment variables
+- Creating interactive seed workflows for environment setup
+- Transitioning from local-first to remote-first development mode
+
+**Categories covered:**
+
+- **Core Model** (CRITICAL) - Three default environments, flat structure,
+  development local-only
+- **Security** (CRITICAL) - Sensitive fields, write-only secrets
+- **Pull Workflow** (HIGH) - Full replacement, branch override resolution
+- **Push Workflow** (HIGH) - Diff display, base values only, bulk upsert
+- **Variable System** (HIGH) - Canonical names, env() syntax
+- **Local Files** (HIGH) - Two files only, resolution order
+- **Branch Overrides** (MEDIUM) - Per-variable, per-branch
+- **Environment CRUD** (MEDIUM) - Seed workflow, consistent verbs
+- **Transition** (MEDIUM) - Local-first to remote-first
+
 ## Installation
 
 ```bash
 # Install a specific skill
 npx skills add MildTomato/agent-skills --skill cli-guidelines
 npx skills add MildTomato/agent-skills --skill docs-writer
+npx skills add MildTomato/agent-skills --skill supabase-environments
 
 # Install all skills
 npx skills add MildTomato/agent-skills
