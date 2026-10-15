@@ -7,6 +7,17 @@ Skills follow the [Agent Skills](https://agentskills.io/) format.
 
 ## Available Skills
 
+### ascii-art
+
+Design ASCII-style stills and animations of any concept. Covers visual
+metaphors, monospace composition, stepped motion, and consistent Figma page,
+section, and frame naming.
+
+**Workflow:** Show a text preview in chat, build editable Figma stills, and
+animate after the user approves the direction. Includes full Figma property
+readouts and PNG references that can be inspected without access to the source
+Figma file.
+
 ### cli-guidelines
 
 Design and build well-crafted command-line interfaces following modern best
@@ -94,6 +105,7 @@ _Note: This skill is for Supabase internal development use._
 
 ```bash
 # Install a specific skill
+npx skills add MildTomato/agent-skills --skill ascii-art
 npx skills add MildTomato/agent-skills --skill cli-guidelines
 npx skills add MildTomato/agent-skills --skill docs-writer
 npx skills add MildTomato/agent-skills --skill supabase-environments
