@@ -1,0 +1,4 @@
+interface:
+  display_name: 'ASCII diagrams and motion'
+  short_description: 'Sparse character diagrams and stepped explanatory motion'
+  default_prompt: 'Use $ascii-diagrams-and-motion to explain this concept in the bundled reference style, preview it in chat, create Figma stills, and wait for my confirmation before animating.'

@@ -1,9 +1,11 @@
 # Reference library
 
-Use these examples to study the visual language and its construction. Read the
-bundled images first, then open the complete payload for the relevant example.
-The source subjects are examples, not the scope of the skill. Original Figma
-access is optional; every image and JSON file below is in this repository.
+These examples establish the skill's visual language: precise character
+geometry, sparse composition, quiet structure, semantic accents, and stepped
+changes that explain a concept. Read the bundled images first, then open the
+complete payload for the relevant construction or motion. Carry that language
+into new subjects and brands. Original Figma access is optional; every image
+and JSON file below is in this repository.
 
 ## Choose a reference
 

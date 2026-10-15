@@ -1,4 +1,0 @@
-interface:
-  display_name: 'ASCII Art'
-  short_description: 'Concept stills and animations made from text'
-  default_prompt: 'Use $ascii-art to preview this concept in chat, create Figma stills, and wait for my confirmation before animating.'

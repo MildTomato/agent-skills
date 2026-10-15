@@ -1,23 +1,52 @@
 ---
-name: ascii-art
+name: ascii-diagrams-and-motion
 description: >-
-  Design ASCII-style stills and animations that explain any concept through
-  monospace text, symbols, spacing, and stepped motion. Use for text-art visual
-  concepts, diagrams, storyboards, and animated explanations. Show a text
-  preview in chat, build editable Figma stills, and animate after the user
-  confirms the visual direction.
+  Create explanatory ASCII diagrams and motion in the bundled references'
+  visual language: monospace character geometry, sparse layouts, quiet
+  structures, semantic accents, and discrete state changes. Use for concept
+  diagrams, process or system explanations, and their stills, storyboards,
+  and animations. Preview in chat, build Figma stills, and animate after
+  confirmation. The subject and brand can vary; preserve the visual language.
 license: MIT
 metadata:
   author: MildTomato
   version: '1.0.0'
 ---
 
-# ASCII art
+# ASCII diagrams and motion
 
-Turn an idea into a readable visual made from characters. Treat the look,
-composition, and explanation as one design problem. This skill applies to any
-subject or brand; the reference subjects do not constrain what you can depict.
-Stills are complete deliverables. Motion is a separate, approved next stage.
+Explain a concept through the specific diagram and motion language captured
+in the bundled Figma references. Build precise monospace structures, leave
+generous space around them, and make relationships and changes easy to follow.
+The subject, product, and brand can change while this visual language stays
+recognizable. Stills are complete deliverables. Motion is a separate, approved
+next stage.
+
+## Preserve the reference language
+
+Inspect the relevant bundled PNGs before proposing a direction. Use the full
+payloads to understand construction and motion; a still image cannot explain
+the sequence. Carry these decisions into new subjects:
+
+- **Character geometry:** Align repeated marks, borders, junctions, and paths
+  to a measured monospace grid. Use character-built containers and dashed
+  connections where they express containment, routes, or relationships.
+- **Sparse composition:** Give each object and its label room. Keep related
+  rows or branches aligned so the viewer can compare them immediately.
+- **Quiet structure, clear focus:** Subdue supporting borders and paths. Use
+  brighter content and restrained accent colors to identify activity or state.
+- **Visible explanation:** Show the relationship or change in the diagram
+  itself. Labels reinforce the action rather than carrying the whole story.
+- **Discrete motion:** Preserve a recognizable structure while characters,
+  objects, reveals, or focus change in deliberate steps with reading holds.
+
+The Compute examples use a character-built processing core and a branching
+composition. The Runtime examples use repeated rows, state changes, and an
+expansion into detail followed by a return to context. Transfer those visual
+decisions to the new concept. Match the reference language even when the new
+subject needs different objects, labels, colors, or topology. This skill is
+for explanatory diagrams in that language, not arbitrary ASCII pictures,
+text banners, or unrelated terminal effects.
 
 ## Preview, build stills, then animate
 
@@ -51,18 +80,18 @@ it through the available review surface. A request to create or test this skill
 is not authorization to modify one of its reference Figma files.
 
 A text preview must express the current concept, not repeat a canned diagram.
-For example, a direction about grouping could start like this:
+For example, a direction about an editorial workflow could start like this:
 
 ```text
-  .  +  .  +           ..      ++
-  +  .  +  .     >     ..      ++
-  .  +  .  +           ..      ++
++-- drafts --+      +-- review --+      +-- ready --+
+|  =  =  =   |----->|     =      |----->|    = =    |
++------------+      +------------+      +-----------+
 ```
 
-The useful information is the change from mixed marks to distinct groups.
-Boxes, arrows, labels, and motion are choices; use them only when they clarify
-this particular idea. The chat sketch approximates composition, not the final
-font metrics, color, or timing.
+Here each `=` represents a document; the spatial order explains progression.
+An animation could move one document through the stages while the containers
+stay fixed. Choose objects and relationships for the actual request. The chat
+sketch approximates composition, not the final font metrics, color, or timing.
 
 ## Use the reference library
 
@@ -76,11 +105,12 @@ ranges and keyframes, including hidden layers. They are source artifacts, not
 snippets. Source URLs provide provenance and optional live inspection. The
 capture format and its explicit boundaries are documented in the index.
 
-Extract transferable decisions: character vocabulary, hierarchy, spacing,
-contrast, visual continuity, and pacing. Do not copy a reference's product
-names, service topology, logos, labels, or technical claims into a new concept
-unless they belong to the user's request. Use the user's newer reference when
-it overrides these examples. Do not fetch every payload by default.
+Use the references as the default visual direction, including their character
+vocabulary, hierarchy, spacing, contrast, visual continuity, and pacing.
+Do not copy a reference's product names, service topology, logos, labels, or
+technical claims into a new concept unless they belong to the user's request.
+Use the user's newer reference when it overrides these examples. Do not fetch
+every payload by default.
 
 ## Compose the visual
 
@@ -96,8 +126,8 @@ Build a character system that remains readable at the final viewing size.
   the chosen font renders them consistently; do not claim strict ASCII if the
   artwork uses other glyphs.
 - Establish clear foreground, supporting structure, and background contrast.
-  Reserve accents for meaningful distinctions. The reference palette is one
-  style profile, not a mandatory brand palette.
+  Reserve accents for meaningful distinctions. Keep the reference's restrained
+  contrast hierarchy when adapting its palette to another brand or background.
 - Make the concept readable before adding detail. Use labels when the subject
   needs them, and keep explanatory prose outside the illustration unless the
   user requests it. Do not force every idea into a terminal or a box-and-arrow
