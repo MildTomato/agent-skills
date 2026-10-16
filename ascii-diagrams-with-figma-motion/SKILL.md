@@ -223,7 +223,9 @@ the output, outside the installed skill.
 
 For stills, verify typography, glyph rendering, clipping, hierarchy, and
 spacing at the intended size. Check border widths and symmetric dash runs
-around centered labels. Check that rendered text belongs to the diagram
-and that no presentation titles or surrounding copy were added. For animation,
-also inspect meaningful phases, state transitions, and the ending. Report what
-was actually inspected; a resting screenshot does not verify timeline playback.
+around centered labels, comparing the rendered dash lengths and gaps in short
+headers and connectors with long borders. Check that rendered text belongs to
+the diagram and that no presentation titles or surrounding copy were added.
+For animation, also inspect meaningful phases, state transitions, and the
+ending. Report what was actually inspected; a resting screenshot does not
+verify timeline playback.

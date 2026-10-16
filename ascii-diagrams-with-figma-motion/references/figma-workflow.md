@@ -63,11 +63,17 @@ character advance, and rich text ranges. Verify that all chosen glyphs exist.
 Generate each box's text rows from a shared column count. For a centered inline
 label, balance the spaces and dash runs on both sides; choose a compatible box
 width rather than adding an unmatched dash. Verify the native glyph spacing
-as well as the character counts. Short dash runs can render differently from
-long ones because of text shaping. If that happens, disable the relevant font
-substitution when supported, or place individual border glyphs as native text
-on the measured character grid. Keep them editable and use the same glyph and
-font metrics throughout; do not compensate with mixed dash characters.
+as well as the character counts. Compare a single `-`, short runs (`--` and
+`---`), and a long border at the same font size in the native render. Check
+both the visible stroke length and the gaps: identical source characters and
+equal text widths do not prove that shaping preserved individual dashes.
+Include short connectors and inline-label borders in this comparison.
+If their dash shapes or spacing differ, disable the relevant font substitution
+when supported, or place individual border and connector glyphs as native text
+on the measured character grid. Apply that choice consistently across the
+asset and related poses. Use the same check for repeated marks that encode
+counts; each mark must remain distinguishable. Keep them editable and use the
+same glyph and font metrics throughout; do not compensate with mixed dashes.
 Use auto-layout for related labels or rows; use explicit character-grid
 placement where the illustration requires it. Keep the diagram in its own
 editable container. Include object and state labels needed by the diagram.
