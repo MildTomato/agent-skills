@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "references": [
+    {
+      "id": "processor",
+      "source": {
+        "fileKey": "LqPL6TBnX15hId7FRjfMOG",
+        "fileName": "Document",
+        "pageId": "794:51219",
+        "pageName": "Compute",
+        "frameId": "766:35029",
+        "frameName": "keynote-2026/compute/01-edge-function-slow-loop",
+        "url": "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=766-35029",
+        "capturedOn": "2026-10-15"
+      },
+      "payload": {
+        "path": "figma/processor.json",
+        "bytes": 2137574,
+        "sha256": "e745be2f7eb68276c4fe813200615e2e3272ab73058c1be095743fb8d67a2ea0",
+        "nodes": 42
+      },
+      "image": {
+        "path": "images/processor.png",
+        "sha256": "e6f0394c64f6fec1b14123e6fc9c143fe4ee9051734e6b2c4ff2db9e61adeae5",
+        "width": 960,
+        "height": 540,
+        "state": "Native resting canvas state; not a timeline sample"
+      }
+    },
+    {
+      "id": "parallel-transformation",
+      "source": {
+        "fileKey": "LqPL6TBnX15hId7FRjfMOG",
+        "fileName": "Document",
+        "pageId": "794:51219",
+        "pageName": "Compute",
+        "frameId": "818:4909",
+        "frameName": "keynote-2026/compute/04-edge-function-to-three-computes-loop",
+        "url": "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=818-4909",
+        "capturedOn": "2026-10-15"
+      },
+      "payload": {
+        "path": "figma/parallel-transformation.json",
+        "bytes": 21913622,
+        "sha256": "708c5d8586e5851c52dac8ddeeebee41c7a4fec1f5b2dcb89217665e5151ae61",
+        "nodes": 88
+      },
+      "image": {
+        "path": "images/parallel-transformation.png",
+        "sha256": "5753f1d7ab5c1bb9eee11d1656aa1a36039fe08403eee92723973ff32dbcf562",
+        "width": 864,
+        "height": 486,
+        "state": "Native resting canvas state; not a timeline sample"
+      }
+    },
+    {
+      "id": "state-conflict",
+      "source": {
+        "fileKey": "LqPL6TBnX15hId7FRjfMOG",
+        "fileName": "Document",
+        "pageId": "794:51214",
+        "pageName": "Runtime",
+        "frameId": "1630:5817",
+        "frameName": "keynote-2026/runtime/01-agent-services-port-conflict-18s",
+        "url": "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=1630-5817",
+        "capturedOn": "2026-10-15"
+      },
+      "payload": {
+        "path": "figma/state-conflict.json",
+        "bytes": 3011911,
+        "sha256": "681b3da0c4527a4ee74ec66a598a383ae34fc5fe680238d10399f18c6ea7119f",
+        "nodes": 558
+      },
+      "image": {
+        "path": "images/state-conflict.png",
+        "sha256": "d9bf94450b10b805e6dbd0497f9546ea77b620dc5fcec7a353da3d5511ee992e",
+        "width": 960,
+        "height": 540,
+        "state": "Native resting canvas state; not a timeline sample"
+      }
+    },
+    {
+      "id": "state-resolution",
+      "source": {
+        "fileKey": "LqPL6TBnX15hId7FRjfMOG",
+        "fileName": "Document",
+        "pageId": "794:51214",
+        "pageName": "Runtime",
+        "frameId": "1640:2682",
+        "frameName": "keynote-2026/runtime/02-reassign-ports-agents-running-24s",
+        "url": "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=1640-2682",
+        "capturedOn": "2026-10-15"
+      },
+      "payload": {
+        "path": "figma/state-resolution.json",
+        "bytes": 3908440,
+        "sha256": "29450b9ebc2ef7cc2f97e029732337aeed31eb04b99bb1085534539865534b6f",
+        "nodes": 713
+      },
+      "image": {
+        "path": "images/state-resolution.png",
+        "sha256": "28745d8e6996cc7b4d656c880468b7b525098f5d8ed02d4ec39ba42969c527c5",
+        "width": 960,
+        "height": 540,
+        "state": "Native resting canvas state; not a timeline sample"
+      }
+    },
+    {
+      "id": "use-case-processors",
+      "source": {
+        "fileKey": "LqPL6TBnX15hId7FRjfMOG",
+        "fileName": "Document",
+        "pageId": "794:51219",
+        "pageName": "Compute",
+        "nodeId": "1402:4820",
+        "nodeName": "keynote-2026/compute/direct/full-slide/03b-use-cases",
+        "nodeType": "FRAME",
+        "url": "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=1402-4820",
+        "capturedOn": "2026-10-16"
+      },
+      "payload": {
+        "path": "figma/use-case-processors.json",
+        "bytes": 55230578,
+        "sha256": "28ff818beb00903238031c3bab658346368ad654b6c2b4b45ee04d70517f12f2",
+        "nodes": 298
+      },
+      "image": {
+        "path": "images/use-case-processors.png",
+        "sha256": "f1ed7d5f961d375b2c6596abf0334c8fc47562e1ad95201bbc096243326c19d7",
+        "width": 1920,
+        "height": 1080,
+        "state": "Native resting canvas state; not a timeline sample"
+      }
+    },
+    {
+      "id": "throughput-comparison",
+      "source": {
+        "fileKey": "LqPL6TBnX15hId7FRjfMOG",
+        "fileName": "Document",
+        "pageId": "861:49213",
+        "pageName": "oriole db",
+        "nodeId": "1262:2858",
+        "nodeName": "TPC-C / Text art / Pause \u2192 Heap \u2192 Pause \u2192 OrioleDB",
+        "nodeType": "FRAME",
+        "url": "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=1262-2858",
+        "capturedOn": "2026-10-16"
+      },
+      "payload": {
+        "path": "figma/throughput-comparison.json",
+        "bytes": 2652427,
+        "sha256": "f631aeaa2a2f9045740d83a153e16bbcbf07da98bca5c012f423ac242be5c05a",
+        "nodes": 60
+      },
+      "image": {
+        "path": "images/throughput-comparison.png",
+        "sha256": "3130c4ad7eedcf4078a2b0e5ec0ceb1a16c8e0f3f0c2d5a4911758ae132a0088",
+        "width": 1920,
+        "height": 1080,
+        "state": "Native resting canvas state; not a timeline sample"
+      }
+    },
+    {
+      "id": "hash-area-growth",
+      "source": {
+        "fileKey": "LqPL6TBnX15hId7FRjfMOG",
+        "fileName": "Document",
+        "pageId": "1353:2919",
+        "pageName": "Ants",
+        "nodeId": "2052:93476",
+        "nodeName": "02 / Projects / 5\u00d7 / hash-shaded text area",
+        "nodeType": "FRAME",
+        "url": "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=2052-93476",
+        "capturedOn": "2026-10-16"
+      },
+      "payload": {
+        "path": "figma/hash-area-growth.json",
+        "bytes": 357459,
+        "sha256": "e140a3c57e33913fcaefc10547f4cdc7e4351de6da2efa29dc1aeb6441bb9d44",
+        "nodes": 45
+      },
+      "image": {
+        "path": "images/hash-area-growth.png",
+        "sha256": "db91021f6cbecc870317f32eff68654fd7bd285d986cb20a0ea2d338e0ea5893",
+        "width": 1920,
+        "height": 1080,
+        "state": "Native resting canvas state; not a timeline sample"
+      }
+    },
+    {
+      "id": "native-startup-and-footprint",
+      "source": {
+        "fileKey": "LqPL6TBnX15hId7FRjfMOG",
+        "fileName": "Document",
+        "pageId": "794:51214",
+        "pageName": "Runtime",
+        "nodeId": "650:27035",
+        "nodeName": "Runtime illustrations / Dockerless and Native",
+        "nodeType": "SECTION",
+        "url": "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=650-27035",
+        "capturedOn": "2026-10-16"
+      },
+      "payload": {
+        "path": "figma/native-startup-and-footprint.json",
+        "bytes": 5243853,
+        "sha256": "88db7f3c0687a63912c58bcd250240387a43064f17a5ec10d2915c53f93c9588",
+        "nodes": 1033
+      },
+      "image": {
+        "path": "images/native-startup-and-footprint.png",
+        "sha256": "f85a5002d44797d491a84643d9e7a1d58b1045cfef8bce47681f1064a25cb51d",
+        "width": 4000,
+        "height": 2158,
+        "state": "Native resting canvas state; not a timeline sample"
+      }
+    },
+    {
+      "id": "destination-streams",
+      "source": {
+        "fileKey": "LqPL6TBnX15hId7FRjfMOG",
+        "fileName": "Document",
+        "pageId": "794:51219",
+        "pageName": "Compute",
+        "nodeId": "2095:9825",
+        "nodeName": "keynote-2026/pipelines/full-slide/01-destination-streams",
+        "nodeType": "FRAME",
+        "url": "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=2095-9825",
+        "capturedOn": "2026-10-16"
+      },
+      "payload": {
+        "path": "figma/destination-streams.json",
+        "bytes": 1975915,
+        "sha256": "8ba5484669a73eb2a8e792397f43225d70fc87ae925cf49df5352c4769ad4b66",
+        "nodes": 87
+      },
+      "image": {
+        "path": "images/destination-streams.png",
+        "sha256": "b62e7469ab8f9edf8a7b4261070dce84f385668c43298d2d8a16ca9b2d51856e",
+        "width": 1920,
+        "height": 1080,
+        "state": "Native resting canvas state; not a timeline sample"
+      }
+    },
+    {
+      "id": "workspace-tree",
+      "source": {
+        "fileKey": "LqPL6TBnX15hId7FRjfMOG",
+        "fileName": "Document",
+        "pageId": "0:1",
+        "pageName": "Components / File Viewer & Tree",
+        "nodeId": "170:981",
+        "nodeName": "Tree View / Agent Workspace",
+        "nodeType": "FRAME",
+        "url": "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=170-981",
+        "capturedOn": "2026-10-16"
+      },
+      "payload": {
+        "path": "figma/workspace-tree.json",
+        "bytes": 554777,
+        "sha256": "020e9de11782aeebc91bd0272379fe4d55c652fc0dc32a9e52c6b39bc1932733",
+        "nodes": 127
+      },
+      "image": {
+        "path": "images/workspace-tree.png",
+        "sha256": "e7348ea4d3a3913c32fe31df095f6439443ef78f7c9ea1e836492c678b17f129",
+        "width": 1128,
+        "height": 528,
+        "state": "Native resting canvas state; not a timeline sample"
+      }
+    },
+    {
+      "id": "timeline-system",
+      "source": {
+        "fileKey": "LqPL6TBnX15hId7FRjfMOG",
+        "fileName": "Document",
+        "pageId": "794:51212",
+        "pageName": "Components / Timeline",
+        "nodeId": "104:415",
+        "nodeName": "Timeline System / Components",
+        "nodeType": "SECTION",
+        "url": "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=104-415",
+        "capturedOn": "2026-10-16"
+      },
+      "payload": {
+        "path": "figma/timeline-system.json",
+        "bytes": 2130433,
+        "sha256": "5e1ba187c1bb53c3d64e7e2acaff6549797b6c387b6fb85ddfefb45f68181a86",
+        "nodes": 478
+      },
+      "image": {
+        "path": "images/timeline-system.png",
+        "sha256": "a058289ca0b719d0428fb0bea4230ed1194cf6071db84e301ef51cb91f8553ca",
+        "width": 4000,
+        "height": 3606,
+        "state": "Native resting canvas state; not a timeline sample"
+      }
+    }
+  ]
+}
