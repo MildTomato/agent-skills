@@ -60,6 +60,14 @@ as a loose approximation or rasterize the whole illustration for convenience.
 
 Load the actual fonts before editing text. Preserve font size, line height,
 character advance, and rich text ranges. Verify that all chosen glyphs exist.
+Generate each box's text rows from a shared column count. For a centered inline
+label, balance the spaces and dash runs on both sides; choose a compatible box
+width rather than adding an unmatched dash. Verify the native glyph spacing
+as well as the character counts. Short dash runs can render differently from
+long ones because of text shaping. If that happens, disable the relevant font
+substitution when supported, or place individual border glyphs as native text
+on the measured character grid. Keep them editable and use the same glyph and
+font metrics throughout; do not compensate with mixed dash characters.
 Use auto-layout for related labels or rows; use explicit character-grid
 placement where the illustration requires it. Keep the diagram in its own
 editable container. Include object and state labels needed by the diagram.

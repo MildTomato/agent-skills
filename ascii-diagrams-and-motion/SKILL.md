@@ -143,6 +143,11 @@ Build a character system that remains readable at the final viewing size.
   Measure the actual font; a font size is not a character width.
 - Use whitespace as geometry. Keep baselines, borders, junctions, and repeated
   objects aligned. Avoid tabs and proportional spacing inside text art.
+- Derive each character box from one column count. Match its header, body,
+  and footer widths. Center an inline label with equal spaces and equal dash
+  runs on both sides; adjust the box width when the label requires it. Use
+  consistent dash glyphs and spacing, then reposition attached paths and
+  contents if the box changes width.
 - Select a small vocabulary of glyphs with distinct visual roles. Plain ASCII
   is the portable base. Unicode arrows or box characters are acceptable when
   the chosen font renders them consistently; do not claim strict ASCII if the
@@ -199,7 +204,8 @@ inspect. Store task-specific scene data and node ownership receipts beside
 the output, outside the installed skill.
 
 For stills, verify typography, glyph rendering, clipping, hierarchy, and
-spacing at the intended size. Check that rendered text belongs to the diagram
+spacing at the intended size. Check border widths and symmetric dash runs
+around centered labels. Check that rendered text belongs to the diagram
 and that no presentation titles or surrounding copy were added. For animation,
 also inspect meaningful phases, state transitions, and the ending. Report what
 was actually inspected; a resting screenshot does not verify timeline playback.
