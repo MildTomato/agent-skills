@@ -62,6 +62,8 @@ These observations describe this collection. Use the user's current design
 system when it calls for a different font, palette, canvas, or subject.
 
 - The source frames use 1920 × 1080 canvases and a dark `#090a08` background.
+  These describe the captured assets; they do not prescribe slide layouts,
+  titles, or footers. New assets use caller-supplied or diagram-sized bounds.
 - Main art commonly uses Geist Mono Regular at 32px with 40px line height.
   The pose-based examples use approximately 19px character advance. Other
   hierarchy levels have their own metrics; inspect the actual text ranges.

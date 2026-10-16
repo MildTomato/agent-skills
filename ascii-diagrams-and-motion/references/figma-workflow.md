@@ -1,12 +1,14 @@
 # Figma workflow
 
-Create editable text and native animation in the user's destination file.
-Reference files are sources to study. Their IDs are not write targets.
+Create editable diagram assets and native animation in the user's destination
+file. A parent skill owns slide or page layout and presentation copy. Reference
+files are sources to study. Their IDs are not write targets.
 
 ## Organize the file
 
 Inspect the file before creating anything. Reuse an established page and naming
 scheme when one exists. Otherwise use the following convention consistently.
+These are editor organization names; do not add them as text in the artwork.
 
 | Level                     | Convention                                              | Example                                   |
 | ------------------------- | ------------------------------------------------------- | ----------------------------------------- |
@@ -44,9 +46,12 @@ skill when reading or authoring animation. Use the current tool schemas and
 API documentation. Load the create-file skill if a new file is requested, or
 the component skill if building a reusable component library is in scope.
 
-Record the target file, page, section, frame dimensions, and existing font
-metrics before writing. A page-level source link is a starting point for
-finding references, not a request to dump or modify the entire file.
+Record the target file, page, section, asset bounds, and existing font metrics
+before writing. Use caller-supplied bounds when available; otherwise fit the
+diagram with breathing room, using shared bounds for related poses and motion.
+Do not infer slide dimensions or title and footer areas from the references.
+A page-level source link is a starting point for finding references, not a
+request to dump or modify the entire file.
 
 Show the actual text rough in chat before the native still. Use editable text
 for the art, with native groups or frames for composition. Reuse an existing
@@ -56,13 +61,16 @@ as a loose approximation or rasterize the whole illustration for convenience.
 Load the actual fonts before editing text. Preserve font size, line height,
 character advance, and rich text ranges. Verify that all chosen glyphs exist.
 Use auto-layout for related labels or rows; use explicit character-grid
-placement where the illustration requires it. Keep captions separate from
-owned art layers so later revisions do not erase user-added copy.
+placement where the illustration requires it. Keep the diagram in its own
+editable container. Include object and state labels needed by the diagram.
+Leave presentation titles, captions, and other surrounding copy to the parent
+skill. Preserve any caller-owned copy outside the diagram's container.
 
 Find free space inside the intended section. Enlarge a section only as needed
 and account for its neighbors. Return all created or changed node IDs and save
 them in a task-local receipt. Verify the still with a native screenshot and
-share its exact frame URL. This is the user's approval checkpoint.
+share its exact frame URL, container ID, and dimensions. Verify that the export
+contains only the diagram asset. This is the user's approval checkpoint.
 
 ## Animate the approved direction
 

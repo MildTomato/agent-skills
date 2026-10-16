@@ -1,12 +1,12 @@
 ---
 name: ascii-diagrams-and-motion
 description: >-
-  Create explanatory ASCII diagrams and motion in the bundled references'
+  Create reusable ASCII diagram assets and motion in the bundled references'
   visual language: monospace character geometry, sparse layouts, quiet
   structures, semantic accents, and discrete state changes. Use for concept
   diagrams, process or system explanations, and their stills, storyboards,
   and animations. Preview in chat, build Figma stills, and animate after
-  confirmation. The subject and brand can vary; preserve the visual language.
+  confirmation. A parent skill owns slide or page layout and presentation copy.
 license: MIT
 metadata:
   author: MildTomato
@@ -21,6 +21,27 @@ generous space around them, and make relationships and changes easy to follow.
 The subject, product, and brand can change while this visual language stays
 recognizable. Stills are complete deliverables. Motion is a separate, approved
 next stage.
+
+## Own the diagram asset
+
+Produce the diagram and its internal composition as a reusable asset. A parent
+skill or the caller handles the surrounding slide, page, or presentation.
+
+- Include text that identifies objects, routes, values, or states within the
+  diagram, such as `queue`, `5 waiting`, or `running`.
+- Leave slide titles, section headings, introductory copy, explanatory
+  captions, footnotes, branding, and page numbers to the parent skill. Keep
+  review explanations and illustrative assumptions in chat or task notes.
+  Describing an explanation as being "outside the diagram" does not authorize
+  adding it elsewhere inside the exported frame.
+- Accept bounds, background, palette, or typography supplied by the caller.
+  Otherwise fit a frame around the diagram with breathing room. Use consistent
+  bounds across related poses, including the full extent of intended motion.
+  A reference's 1920 × 1080 canvas does not imply a slide layout or reserve
+  space for a headline and footer.
+- Keep the diagram in a self-contained editable container so a parent can
+  place it. Return its node ID, dimensions, link, and preview. Page, section,
+  and frame names organize the Figma file; do not render them as headings.
 
 ## Preserve the reference language
 
@@ -59,12 +80,13 @@ explicit request for a different medium or workflow.
 2. Show an actual text-art preview **in the chat**, inside a fenced `text`
    block. A description, file link, or promise to preview is not a substitute.
    For a still, show the composition. For an animation, show its meaningful
-   poses with short explanations outside the art. Preserve spaces and line
-   breaks. Keep the preview narrow enough to read in chat without wrapping.
-3. Build editable stills in the intended Figma file. Refine the chat rough at
-   the real canvas size, inspect the native rendering, and share the frame
-   links and images. If the destination is unknown, ask for it after showing
-   the text direction; do not create an arbitrary file.
+   poses with short explanations in chat outside the fenced preview. Preserve
+   spaces and line breaks. Keep the preview narrow enough to read without
+   wrapping.
+3. Build editable diagram stills in the intended Figma file. Refine the chat
+   rough within the asset bounds, inspect the native rendering, and share
+   frame links and images. If the destination is unknown, ask for it after
+   showing the text direction; do not create an arbitrary file.
 4. Stop for the user's confirmation of the Figma stills before creating
    animation tracks or rendering a video. State which still or sequence is
    ready for approval. A request to animate a concept does not, by itself,
@@ -128,13 +150,13 @@ Build a character system that remains readable at the final viewing size.
 - Establish clear foreground, supporting structure, and background contrast.
   Reserve accents for meaningful distinctions. Keep the reference's restrained
   contrast hierarchy when adapting its palette to another brand or background.
-- Make the concept readable before adding detail. Use labels when the subject
-  needs them, and keep explanatory prose outside the illustration unless the
-  user requests it. Do not force every idea into a terminal or a box-and-arrow
-  system.
-- Let the composition fit the destination. Preserve text metrics when moving
-  elements or making room for captions. Do not silently shrink a related
-  composition's type to solve an overlap.
+- Make the concept readable before adding detail. Use concise internal labels
+  when the subject needs them. Explain the visual in chat; presentation copy
+  belongs to the parent skill. Do not force every idea into a terminal or a
+  box-and-arrow system.
+- Fit the diagram within the supplied bounds or its own content frame.
+  Preserve text metrics when moving elements. Do not silently shrink a
+  related composition's type to solve an overlap or add surrounding layout.
 
 A still must communicate on its own. Select a meaningful state, or show a
 spatial comparison if change is the idea. Do not deliver an empty opening
@@ -171,11 +193,13 @@ that medium's native tools.
 
 ## Deliver and retain the source
 
-Give the user the requested still or animation, its editable frame link, and a
-preview they can inspect. Store task-specific scene data and node ownership
-receipts beside the output, outside the installed skill.
+Give the user or parent skill the requested diagram still or animation, its
+editable container ID and frame link, dimensions, and a preview they can
+inspect. Store task-specific scene data and node ownership receipts beside
+the output, outside the installed skill.
 
 For stills, verify typography, glyph rendering, clipping, hierarchy, and
-spacing at the intended size. For animation, also inspect meaningful phases,
-state transitions, and the ending. Report what was actually inspected; a
-resting screenshot does not verify timeline playback.
+spacing at the intended size. Check that rendered text belongs to the diagram
+and that no presentation titles or surrounding copy were added. For animation,
+also inspect meaningful phases, state transitions, and the ending. Report what
+was actually inspected; a resting screenshot does not verify timeline playback.

@@ -13,6 +13,8 @@ Explain concepts through sparse ASCII diagrams and stepped motion, grounded
 in the bundled Figma examples. Preserve their precise monospace geometry,
 quiet structure, restrained accents, and visible state changes across new
 subjects and brands. Includes Figma page, section, and frame naming.
+Produces reusable diagram assets with internal labels; a parent skill handles
+slide or page layout, titles, and surrounding presentation copy.
 
 **Workflow:** Show a text preview in chat, build editable Figma stills, and
 animate after the user approves the direction. Includes full Figma property
