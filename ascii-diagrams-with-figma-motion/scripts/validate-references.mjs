@@ -19,11 +19,15 @@ for (const reference of index.references) {
   const bytes = readFileSync(resolve(library, reference.payload.path))
   assert.equal(createHash('sha256').update(bytes).digest('hex'), reference.payload.sha256)
   const payload = JSON.parse(bytes)
-  assert.equal(payload.schemaVersion, 1)
+  assert.ok([1, 2].includes(payload.schemaVersion), 'Unsupported capture schema')
   assert.equal(payload.capture.truncated, false)
   assert.deepEqual(payload.capture.errors, [])
   assert.equal(payload.capture.nodeCount, payload.nodes.length)
-  assert.equal(payload.source.frameId, reference.source.frameId)
+  const rootId = payload.source.nodeId ?? payload.source.frameId
+  assert.equal(rootId, reference.source.nodeId ?? reference.source.frameId)
+  assert.equal(payload.source.fileKey, reference.source.fileKey)
+  assert.equal(payload.source.pageId, reference.source.pageId)
+  assert.equal(bytes.length, reference.payload.bytes)
   const nodes = new Map(payload.nodes.map((node) => [node.id, node]))
   assert.equal(nodes.size, payload.nodes.length, 'Node IDs must be unique')
   const visited = new Set()
@@ -46,8 +50,10 @@ for (const reference of index.references) {
       }
       assert.equal(position, node.text.characters.length, `Incomplete text ranges: ${id}`)
     }
-    assert.ok(Array.isArray(node.motion.timelines))
-    assert.ok(node.motion.manualKeyframeTracks)
+    if (node.type !== 'COMPONENT_SET') {
+      assert.ok(Array.isArray(node.motion.timelines))
+      assert.ok(node.motion.manualKeyframeTracks)
+    }
     for (const frame of keyframes(node.motion.manualKeyframeTracks)) {
       assert.ok(Number.isFinite(frame.timelinePosition))
       assert.ok(frame.timelinePosition >= 0)
@@ -55,7 +61,11 @@ for (const reference of index.references) {
       totalKeyframes++
     }
   }
-  visit(payload.source.frameId)
+  if (payload.schemaVersion === 2) {
+    assert.equal(nodes.get(rootId)?.type, payload.source.nodeType)
+    assert.equal(payload.source.nodeType, reference.source.nodeType)
+  }
+  visit(rootId)
   assert.equal(visited.size, nodes.size, 'Every captured node must be reachable')
   const png = readFileSync(resolve(library, reference.image.path))
   assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a')

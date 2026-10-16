@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "organization": "MildTomato",
+  "author": "MildTomato",
+  "date": "October 2026",
+  "abstract": "Create reusable ASCII diagrams, charts, trees, timelines, and stepped Figma motion grounded in the bundled Figma references: precise monospace geometry, quiet structure, semantic accents, and visible state changes. A parent skill owns presentation copy and slide or page layout. Supports varied subjects and brands, chat previews, editable Figma stills, approval before animation, consistent Figma organization, and complete portable source readouts and images.",
+  "references": [
+    "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=794-51214",
+    "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=794-51219",
+    "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=1402-4820",
+    "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=1262-2858",
+    "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=2052-93476",
+    "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=650-27035",
+    "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=2095-9825",
+    "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=170-981",
+    "https://www.figma.com/design/LqPL6TBnX15hId7FRjfMOG?node-id=104-415"
+  ]
+}

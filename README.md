@@ -7,10 +7,11 @@ Skills follow the [Agent Skills](https://agentskills.io/) format.
 
 ## Available Skills
 
-### ascii-diagrams-and-motion
+### ascii-diagrams-with-figma-motion
 
-Explain concepts through sparse ASCII diagrams and stepped motion, grounded
-in the bundled Figma examples. Preserve their precise monospace geometry,
+Explain concepts through sparse ASCII diagrams, charts, trees, timelines,
+and stepped Figma motion, grounded in the bundled Figma examples. Preserve
+their precise monospace geometry,
 quiet structure, restrained accents, and visible state changes across new
 subjects and brands. Includes Figma page, section, and frame naming.
 Produces reusable diagram assets with internal labels; a parent skill handles
@@ -108,7 +109,7 @@ _Note: This skill is for Supabase internal development use._
 
 ```bash
 # Install a specific skill
-npx skills add MildTomato/agent-skills --skill ascii-diagrams-and-motion
+npx skills add MildTomato/agent-skills --skill ascii-diagrams-with-figma-motion
 npx skills add MildTomato/agent-skills --skill cli-guidelines
 npx skills add MildTomato/agent-skills --skill docs-writer
 npx skills add MildTomato/agent-skills --skill supabase-environments

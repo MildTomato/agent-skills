@@ -93,7 +93,9 @@ Choose the representation that fits the illustration:
   pose visible for each intended interval, including the first frame and seam.
 - **Persistent objects:** Useful when the same objects move, reveal, expand, or
   change state. Animate descendants with HOLD transforms, opacity, or clipped
-  dimensions. Avoid smooth interpolation through half-glyph reveals.
+  dimensions for stepped motion. Keep glyphs readable. When adapting a chart
+  or focus transition that uses easing, preserve its intended continuous
+  reveal alongside the held character states.
 - **Combined construction:** Keep the static structure persistent and swap or
   move only the changing text. Do not duplicate the whole scene if that makes
   a simple edit harder to maintain.

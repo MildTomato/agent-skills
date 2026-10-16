@@ -1,19 +1,20 @@
 ---
-name: ascii-diagrams-and-motion
+name: ascii-diagrams-with-figma-motion
 description: >-
   Create reusable ASCII diagram assets and motion in the bundled references'
   visual language: monospace character geometry, sparse layouts, quiet
   structures, semantic accents, and discrete state changes. Use for concept
-  diagrams, process or system explanations, and their stills, storyboards,
-  and animations. Preview in chat, build Figma stills, and animate after
-  confirmation. A parent skill owns slide or page layout and presentation copy.
+  diagrams, charts, trees, timelines, process or system explanations, and
+  their stills, storyboards, and animations. Preview in chat, build Figma stills,
+  and animate after confirmation. A parent skill owns slide or page layout and
+  presentation copy.
 license: MIT
 metadata:
   author: MildTomato
   version: '1.0.0'
 ---
 
-# ASCII diagrams and motion
+# ASCII diagrams with Figma motion
 
 Explain a concept through the specific diagram and motion language captured
 in the bundled Figma references. Build precise monospace structures, leave
@@ -63,9 +64,12 @@ the sequence. Carry these decisions into new subjects:
 
 The Compute examples use a character-built processing core and a branching
 composition. The Runtime examples use repeated rows, state changes, and an
-expansion into detail followed by a return to context. Transfer those visual
-decisions to the new concept. Match the reference language even when the new
-subject needs different objects, labels, colors, or topology. This skill is
+expansion into detail followed by a return to context. Other references use
+character plots, shaded areas, nested tree rows, and milestone timelines.
+Choose the visual structure that explains the subject; the reference language
+does not require every concept to become a network of boxes. Match that
+language even when the new subject needs different objects, labels, colors,
+or topology. This skill is
 for explanatory diagrams in that language, not arbitrary ASCII pictures,
 text banners, or unrelated terminal effects.
 
@@ -122,8 +126,8 @@ PNG images, then read the associated full JSON payload for construction or
 motion details. The files are bundled with the skill and can be read offline.
 Access to the original Figma file is not a prerequisite.
 
-The JSON files contain complete captured frame subtrees and all captured text
-ranges and keyframes, including hidden layers. They are source artifacts, not
+The JSON files contain complete captured container subtrees and all captured
+text ranges and keyframes, including hidden layers. They are source artifacts, not
 snippets. Source URLs provide provenance and optional live inspection. The
 capture format and its explicit boundaries are documented in the index.
 
@@ -133,6 +137,12 @@ Do not copy a reference's product names, service topology, logos, labels, or
 technical claims into a new concept unless they belong to the user's request.
 Use the user's newer reference when it overrides these examples. Do not fetch
 every payload by default.
+
+Some full references include source-slide titles, component documentation,
+legends, or technical claims. Preserve those in the source artifacts, but
+carry over only the diagram elements relevant to the new task. Axes, units,
+data labels, and state labels can belong inside the diagram. Presentation
+headings and surrounding explanatory copy still belong to the parent skill.
 
 ## Compose the visual
 
@@ -159,6 +169,11 @@ Build a character system that remains readable at the final viewing size.
   when the subject needs them. Explain the visual in chat; presentation copy
   belongs to the parent skill. Do not force every idea into a terminal or a
   box-and-arrow system.
+- For charts, preserve the supplied values, units, scale, and comparison.
+  Align character traces, fills, and labels to that mapping. For trees, keep
+  indentation and connector columns consistent across row states. For
+  timelines, distinguish ordered milestones from proportional time spacing;
+  changing a label alone must not silently imply a different duration.
 - Fit the diagram within the supplied bounds or its own content frame.
   Preserve text metrics when moving elements. Do not silently shrink a
   related composition's type to solve an overlap or add surrounding layout.
@@ -176,8 +191,11 @@ After approval, choose a sequence that makes the intended relationship visible.
   clear handoff. Do not accidentally imply a different causal relationship.
 - Use discrete state changes and held positions for the reference style.
   Character reveals, row reveals, substitution, expansion, travel, and focus
-  changes are useful operations. Use actual stepped keyframes, not a smooth
-  tween exported at a low frame rate.
+  changes are useful operations. Use actual stepped keyframes for stepped
+  motion. Some references combine held character poses with eased chart
+  reveals or focus transitions; preserve that distinction when it explains
+  the subject. A low export frame rate does not turn a tween into stepped
+  animation.
 - Keep enough of the scene still that the eye knows what to follow. Give
   important states reading time. Use fast steps for travel or assembly and
   longer holds for the meaning. Do not apply one cadence to every action.

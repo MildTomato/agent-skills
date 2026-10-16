@@ -1,4 +1,0 @@
-interface:
-  display_name: 'ASCII diagrams and motion'
-  short_description: 'Reusable character diagrams and stepped explanatory motion'
-  default_prompt: 'Use $ascii-diagrams-and-motion to create a diagram asset for this concept in the bundled reference style, preview it in chat, create Figma stills, and wait for my confirmation before animating.'

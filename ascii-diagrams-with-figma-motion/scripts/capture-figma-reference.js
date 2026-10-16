@@ -1,15 +1,18 @@
 // Run through Figma's Plugin API, followed by:
-// return await captureFigmaReference({ fileKey, pageId, frameId, capturedOn });
+// return await captureFigmaReference({ fileKey, pageId, nodeId, capturedOn });
 // Read-only: no design nodes are created, changed, or removed.
 async function captureFigmaReference(config) {
   const page = await figma.getNodeByIdAsync(config.pageId)
   if (!page || page.type !== 'PAGE') throw new Error('Reference page not found')
   await figma.setCurrentPageAsync(page)
-  const frame = await figma.getNodeByIdAsync(config.frameId)
-  if (!frame || frame.type !== 'FRAME') throw new Error('Reference frame not found')
-  let ancestor = frame
+  const root = await figma.getNodeByIdAsync(config.nodeId ?? config.frameId)
+  const containerTypes = ['FRAME', 'SECTION', 'COMPONENT', 'COMPONENT_SET', 'GROUP', 'INSTANCE']
+  if (!root || !containerTypes.includes(root.type)) {
+    throw new Error('Reference container not found or unsupported')
+  }
+  let ancestor = root
   while (ancestor && ancestor.type !== 'PAGE') ancestor = ancestor.parent
-  if (ancestor?.id !== page.id) throw new Error('Frame belongs to another page')
+  if (ancestor?.id !== page.id) throw new Error('Reference belongs to another page')
   if (figma.fileKey && config.fileKey !== figma.fileKey) {
     throw new Error('Reference file key does not match the open file')
   }
@@ -187,12 +190,11 @@ async function captureFigmaReference(config) {
       parentId: node.parent?.id ?? null,
       childIds: children.map((child) => child.id),
       properties: properties(node, common, node.id),
-      motion: {
-        manualKeyframeTracks: clone(node.manualKeyframeTracks),
-        animations: clone(node.animations),
-        animationStyles: clone(node.animationStyles),
-        timelines: clone(node.timelines),
-      },
+      motion: Object.fromEntries(
+        ['manualKeyframeTracks', 'animations', 'animationStyles', 'timelines']
+          .filter((field) => field in node)
+          .map((field) => [field, clone(node[field])])
+      ),
     }
     if (node.type === 'TEXT') {
       item.text = properties(node, textFields, node.id)
@@ -215,7 +217,7 @@ async function captureFigmaReference(config) {
   const previousSkip = figma.skipInvisibleInstanceChildren
   figma.skipInvisibleInstanceChildren = false
   try {
-    visit(frame)
+    visit(root)
   } finally {
     figma.skipInvisibleInstanceChildren = previousSkip
   }
@@ -284,21 +286,22 @@ async function captureFigmaReference(config) {
     )
   }
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     source: {
       fileKey: config.fileKey,
       fileName: figma.root.name,
       pageId: page.id,
       pageName: page.name,
-      frameId: frame.id,
-      frameName: frame.name,
-      url: `https://www.figma.com/design/${config.fileKey}?node-id=${frame.id.replace(':', '-')}`,
+      nodeId: root.id,
+      nodeName: root.name,
+      nodeType: root.type,
+      url: `https://www.figma.com/design/${config.fileKey}?node-id=${root.id.replace(':', '-')}`,
       capturedOn: config.capturedOn,
     },
     capture: {
       method: 'Figma Plugin API recursive property readout',
       scope:
-        'Entire frame subtree, including hidden layers, all text, style ranges, and motion keyframes',
+        'Entire selected container subtree, including hidden layers, all text, style ranges, and motion keyframes',
       nodeCount: nodes.length,
       textNodeCount: nodes.filter((n) => n.type === 'TEXT').length,
       truncated: false,
